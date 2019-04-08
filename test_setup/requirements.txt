@@ -1,0 +1,5 @@
+Django
+django-translated-fields
+pytest-django
+pytest-factoryboy
+pytest-cov

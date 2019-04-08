@@ -1,6 +1,8 @@
 Let's Agree
 ======
 
+**This project is not yet published to pypi. It can be installed from github.**
+
 About
 ---
 
@@ -21,8 +23,6 @@ If the user does not provide consent, the following actions are only allowed:
 * View all terms
 
 
-
-
 Prerequisites
 -------
 
@@ -35,6 +35,43 @@ Installation
 -------
 * `pip install django-letsagree`
 
+* project/settings.py
+    ```python
+    INSTALLED_APPS = [
+        ...,
+        'letsagree',
+        ...,
+    ]
+
+    MIDDLEWARE = [
+        ...
+        'letsagree.middleware.LetsAgreeMiddleware',  # Near the end of the list
+        ...
+    ]
+    ```
+
+* `django-letsagree` itself does not come with any migrations. It is recommended
+    that you add migrations for its models in your project and avoid using the
+    word `migrations` as the name of the folder.
+
+    The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
+    In the following example, we will create a folder called `3p_migrations`
+    in the main project folder where `settings.py` lies.
+
+    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
+
+    project/settings.py:
+    ```python
+        MIGRATION_MODULES = {
+            'letsagree': 'project.3p_migrations.letsagree',
+        }
+    ```
+    Then:
+    ```python
+        ./manage.py makemigrations letsagree
+        ./manage.py migrate
+    ```
+
 * project/urls.py:
 
     ```python
@@ -42,15 +79,6 @@ Installation
             ...
             path('path/to/letsagree/', include('letsagree.urls')),
             ...
-    ]
-    ```
-
-* project/settings.py
-    ```python
-    MIDDLEWARE = [
-        ...
-        'letsagree.middleware.LetsAgreeMiddleware',  # Near the end of the list
-        ...
     ]
     ```
 
@@ -83,7 +111,7 @@ If `LETSAGREE_CACHE = True`, [Django's Cache Framework](https://docs.djangoproje
 
 Tip: [django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness.
 
-<a name='translation'></a> 
+<a name='translation'></a>
 ### Translation
 
 
@@ -97,7 +125,7 @@ The first entry of this list is considered as the "default language". The releva
 
 All other fields that are related with the rest of the languages in the `LANGUAGES` list are marked as `blank=True` and can stay empty.
 
-Although the [`LANGUAGE_CODE`](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) setting is not directly related with `letsagree` or `django-translated-fields` it is strongly recommended to match the first language in the `LANGUAGES` setting.
+Although the [`LANGUAGE_CODE`](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) setting is not directly related with `letsagree` or `django-translated-fields` it is **strongly** recommended to match the first language in the `LANGUAGES` setting.
 
 Example:
 ```python
