@@ -44,6 +44,7 @@ Installation
             ...
     ]
     ```
+
 * project/settings.py
     ```python
     MIDDLEWARE = [
@@ -52,7 +53,11 @@ Installation
         ...
     ]
     ```
+
+* Make sure [LANGUAGE_CODE](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) is properly set as explained in the [Translation](#translation) section.
+
 * [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
+
 
 Settings
 --------
@@ -79,7 +84,7 @@ If `LETSAGREE_CACHE = True`, [Django's Cache Framework](https://docs.djangoproje
 Tip: [django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness.
 
 
-
+<a name='translation' />
 ### Translation
 
 
@@ -135,10 +140,10 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear in the top right corner of both templates. 
-  
-  This is formed as `reverse(<LETSAGREE_LOGOUT_APP_NAME>:logout)`. 
-  
+* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear in the top right corner of both templates.
+
+  This is formed as `reverse(<LETSAGREE_LOGOUT_APP_NAME>:logout)`.
+
   The logout link defaults to `reverse('admin:logout')`.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
