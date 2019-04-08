@@ -8,14 +8,14 @@
 #
 #       Creation Date : Mon 08 Apr 2019 07:00:40 PM EEST (19:00)
 #
-#       Last Modified : Mon 08 Apr 2019 10:05:56 PM EEST (22:05)
+#       Last Modified : Mon 08 Apr 2019 10:11:02 PM EEST (22:11)
 #
 # ==============================================================================
 
 import os
 from setuptools import find_packages, setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
