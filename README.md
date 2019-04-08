@@ -27,7 +27,7 @@ Prerequisites
 -------
 
 * Python 3.5, 3.6, 3.7
-* Django [officially supported versions](https://www.djangoproject.com/download/#supported-versions)
+* Django 2.1, 2.2
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 
