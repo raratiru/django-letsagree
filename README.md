@@ -38,9 +38,9 @@ Installation
 * project/settings.py
     ```python
     INSTALLED_APPS = [
-        ...,
+        ...
         'letsagree',
-        ...,
+        ...
     ]
 
     MIDDLEWARE = [
