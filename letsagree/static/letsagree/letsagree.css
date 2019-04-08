@@ -1,0 +1,21 @@
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select,
+.vTextField {
+  border: None;
+  background: #fff;
+  color: #000;
+  display: block;
+}
+form > p:nth-of-type(4n) {
+  border-bottom: solid 1px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}

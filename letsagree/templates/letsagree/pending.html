@@ -1,0 +1,67 @@
+{% extends 'admin/index.html' %}
+{% load i18n %}
+
+{% block title %}
+{{ browser_title }}
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}{{ form.media }}
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{{ border_header }}</h1>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% if user.is_staff or user.is_superuser %}
+    {% url 'admin:app_list' 'letsagree' %}
+    {% else %}{% endif %}">{% trans "Let's Agree" %}</a>
+  &rsaquo; <a href="{% if user.is_staff or user.is_superuser %}
+    {% url 'admin:letsagree_notarypublic_changelist' %}
+    {% else %}{% endif %}">{% trans "Agreed Terms" %}</a>
+  &rsaquo; {% trans "Terms Requiring Consent" %}
+</div>
+{% endblock %}
+
+{% block usertools %}
+<div id="user-tools">
+
+  {% block welcome-msg %}
+    {% if user.get_short_name or user.get_username %}
+      {% trans "Welcome," %}
+      <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+    {% endif %}
+  {% endblock %}
+
+  {% block userlinks %}
+    {% if site_url %}
+      <a href="{{ site_url }}">{% trans "View site" %}</a> /
+    {% endif %}
+    {% if user.is_staff %}
+      <a href="{% url 'admin:index' %}"> {% trans "Admin Site" %}</a>
+    {% endif %}
+    {% if user.get_short_name or user.get_username and logout_url %}
+    / <a href="{{ logout_url }}">{% trans "Log out" %}</a>
+    {% endif %}
+  {% endblock %}
+
+</div>
+{% endblock %}
+
+{% block content %}
+<h2>{% trans "Pending Agreements" %}</h2>
+  {% if empty_form %}
+  <p>{% trans "There are no pending agreements" %}</p>
+  {% else %}
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="{% trans "I Agree to the Above" %}"/>
+    </form>
+  {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
