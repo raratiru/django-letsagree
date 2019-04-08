@@ -83,8 +83,7 @@ If `LETSAGREE_CACHE = True`, [Django's Cache Framework](https://docs.djangoproje
 
 Tip: [django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness.
 
-
-<a name='translation' />
+<a name='translation'></a> 
 ### Translation
 
 
