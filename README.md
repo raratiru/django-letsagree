@@ -62,14 +62,17 @@ Installation
 
     project/settings.py:
     ```python
-        MIGRATION_MODULES = {
-            'letsagree': 'project.3p_migrations.letsagree',
-        }
+    MIGRATION_MODULES = {
+        'letsagree': 'project.3p_migrations.letsagree',
+    }
     ```
+
+    Make sure [LANGUAGE_CODE](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) is properly set as explained in the [Translation](#translation) section.
+    The default implementation will create as many fields as the number of languages Django supports.
     Then:
     ```python
-        ./manage.py makemigrations letsagree
-        ./manage.py migrate
+    ./manage.py makemigrations letsagree
+    ./manage.py migrate
     ```
 
 * project/urls.py:
@@ -82,7 +85,6 @@ Installation
     ]
     ```
 
-* Make sure [LANGUAGE_CODE](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) is properly set as explained in the [Translation](#translation) section.
 
 * [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
 
