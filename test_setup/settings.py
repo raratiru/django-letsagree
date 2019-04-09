@@ -8,9 +8,13 @@
 #
 #       Creation Date : Tue 09 Apr 2019 01:19:13 AM EEST (01:19)
 #
-#       Last Modified : Tue 09 Apr 2019 02:04:35 AM EEST (02:04)
+#       Last Modified : Tue 09 Apr 2019 03:31:42 AM EEST (03:31)
 #
 # ==============================================================================
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'fsfie4j234*^%Dkkvkdnf8(*^@#()Fjvhdfi3))^%$'
 
@@ -37,3 +41,16 @@ MIDDLEWARE = [
 
 LANGUAGES = (('fr', 'French'), ('en', 'English'))
 LANGUAGE_CODE = 'fr'
+
+ROOT_URLCONF = 'test_setup.urls'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+MIGRATION_MODULES = {
+    'letsagree': 'test_setup.3p_migrations.letsagree',
+}

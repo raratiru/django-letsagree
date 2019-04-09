@@ -8,15 +8,15 @@
 #
 #       Creation Date : Sun 17 Mar 2019 03:47:22 PM EET (15:47)
 #
-#       Last Modified : Sun 07 Apr 2019 08:28:43 PM EEST (20:28)
+#       Last Modified : Tue 09 Apr 2019 03:20:45 AM EEST (03:20)
 #
 # ==============================================================================
 
-import os
 import pytest
 import sqlite3
 
 from letsagree.middleware import LetsAgreeMiddleware
+from django.conf import settings
 from django.core.cache import cache
 from django.urls import reverse
 
@@ -27,11 +27,12 @@ def test_middleware_init():
     my_middleware = LetsAgreeMiddleware('response')
     assert my_middleware.get_response == 'response'
 
+print(settings.DATABASES)
 
 @pytest.mark.skipif(
     all((
         float('.'.join(sqlite3.sqlite_version.split('.')[:2])) < 3.25,
-        'sqlite' in os.environ.get('DATABASE_URL'),
+        'sqlite3' in settings.DATABASES['default']['ENGINE'],
     )),
     reason='Window Function is not supported in this SQLite version'
 )

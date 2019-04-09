@@ -8,15 +8,15 @@
 #
 #       Creation Date : Fri 22 Mar 2019 08:16:11 PM EET (20:16)
 #
-#       Last Modified : Sat 23 Mar 2019 12:00:11 AM EET (00:00)
+#       Last Modified : Tue 09 Apr 2019 03:15:15 AM EEST (03:15)
 #
 # ==============================================================================
 
-import os
 import pytest
 import sqlite3
 
 from collections import defaultdict
+from django.conf import settings
 from letsagree.models import Term
 
 pytestmark = pytest.mark.django_db
@@ -25,7 +25,7 @@ pytestmark = pytest.mark.django_db
 @pytest.mark.skipif(
     all((
         float('.'.join(sqlite3.sqlite_version.split('.')[:2])) < 3.25,
-        'sqlite' in os.environ.get('DATABASE_URL'),
+        'sqlite3' in settings.DATABASES['default']['ENGINE'],
     )),
     reason='Window Function is not supported in this SQLite version'
 )
@@ -57,7 +57,7 @@ def test_pending(queries, django_assert_num_queries):
 @pytest.mark.skipif(
     all((
         float('.'.join(sqlite3.sqlite_version.split('.')[:2])) < 3.25,
-        'sqlite' in os.environ.get('DATABASE_URL'),
+        'sqlite3' in settings.DATABASES['default']['ENGINE'],
     )),
     reason='Window Function is not supported in this SQLite version'
 )
@@ -90,7 +90,7 @@ def test_agreed(queries, django_assert_num_queries):
 @pytest.mark.skipif(
     all((
         float('.'.join(sqlite3.sqlite_version.split('.')[:2])) < 3.25,
-        'sqlite' in os.environ.get('DATABASE_URL'),
+        'sqlite3' in settings.DATABASES['default']['ENGINE'],
     )),
     reason='Window Function is not supported in this SQLite version'
 )
