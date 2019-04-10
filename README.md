@@ -67,8 +67,8 @@ Installation
     }
     ```
 
-      * Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
-        The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
+    * Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
+      The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
 
     Then:
     ```python
