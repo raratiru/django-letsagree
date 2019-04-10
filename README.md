@@ -206,8 +206,19 @@ If two instances of Term associate with the same Group, the instance saved-last 
 
 `django-letsagree` takes into account if a logged-in user has provided consent only for the latest version of each Term associated with the Groups he belongs to. If not, the user can only logout or visit `django-letsagree` admin page retaining the right to delete any instances of consent he has provided.
 
-Coverage: Not Included
--------------------------
+Tests
+-----
+
+To run the test suite, you need:
+
+* Virtualenv with tox installed.
+* PostgreSQL, MariaDB/MySQL databases with the same user, password, database name.
+* The following environment variables set: `TOX_DB_NAME`, `TOX_DB_USER`, `TOX_DB_PASSWD`.
+
+Unfortunatelly, the test suite is rather complicated. Sorry!
+
+### Coverage: Not Included
+
 * `LETSAGREE_CSS`
 * `LETSAGREE_JS`
 * `letsagree.admin.term_parents`
