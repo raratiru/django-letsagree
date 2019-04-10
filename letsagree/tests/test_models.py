@@ -29,7 +29,7 @@ def test_strings(queries, django_assert_num_queries):
     group_name = term.group_key.name
     assert str(group_name) in string
     assert str(term.id) in string
-    assert str(term.date_created.strftime('%Y-%m-%d-%T')) in string
+    assert str(term.date_created.strftime("%Y-%m-%d-%T")) in string
 
     with django_assert_num_queries(1):
         notary_public = models.NotaryPublic.objects.first()

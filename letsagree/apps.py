@@ -14,5 +14,6 @@
 
 from django.apps import AppConfig
 
+
 class LetsagreeConfig(AppConfig):
-    name = 'letsagree'
+    name = "letsagree"

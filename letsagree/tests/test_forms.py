@@ -19,13 +19,11 @@ def test_pending_form():
     form = forms.PendingConsentForm()
     # Test that save is not responding
     result = form.save(
-        ('blah', 'tt'),
-        {'does nothing': 3, None: '3'},
-        random_variable='4',
+        ("blah", "tt"), {"does nothing": 3, None: "3"}, random_variable="4"
     )
     assert result is None
     # All fields are disabled except agree
-    popped = form.fields.pop('agree')
+    popped = form.fields.pop("agree")
     assert popped.disabled is False
 
     for each in form.fields.values():

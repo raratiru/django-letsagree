@@ -17,60 +17,60 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
-    'default': {
-        'ENGINE': os.environ['TOX_DB_ENGINE'],
-        'NAME': os.environ['TOX_DB_NAME'],
-        'USER': os.environ['TOX_DB_USER'],
-        'PASSWORD': os.environ['TOX_DB_PASSWD'],
+    "default": {
+        "ENGINE": os.environ["TOX_DB_ENGINE"],
+        "NAME": os.environ["TOX_DB_NAME"],
+        "USER": os.environ["TOX_DB_USER"],
+        "PASSWORD": os.environ["TOX_DB_PASSWD"],
     }
 }
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'letsagree',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "letsagree",
 ]
 
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = "en"
 
-LANGUAGES = (('en', 'English'),)
+LANGUAGES = (("en", "English"),)
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'letsagree.middleware.LetsAgreeMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "letsagree.middleware.LetsAgreeMiddleware",
 ]
 
-ROOT_URLCONF = 'test_setup.urls'
+ROOT_URLCONF = "test_setup.urls"
 
-SECRET_KEY = 'fsfie4j234*^%Dkkvkdnf8(*^@#()Fjvhdfi3))^%$'
+SECRET_KEY = "fsfie4j234*^%Dkkvkdnf8(*^@#()Fjvhdfi3))^%$"
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ]
         },
-    },
+    }
 ]
 
 USE_I18N = False

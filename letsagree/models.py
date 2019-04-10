@@ -30,25 +30,19 @@ class Term(models.Model):
     group_key = models.ForeignKey(
         Group,
         on_delete=models.PROTECT,
-        related_name='terms',
-        verbose_name=_('Related Group'),
+        related_name="terms",
+        verbose_name=_("Related Group"),
     )
     title = TranslatedFieldWithFallback(
-        models.CharField(
-            max_length=63,
-            verbose_name=_('Title'),
-            db_index=True
-        )
+        models.CharField(max_length=63, verbose_name=_("Title"), db_index=True)
     )
-    summary = TranslatedFieldWithFallback(
-        models.TextField(verbose_name=_('Summary')),
-    )
+    summary = TranslatedFieldWithFallback(models.TextField(verbose_name=_("Summary")))
     content = TranslatedFieldWithFallback(
-        models.TextField(verbose_name=_('Terms and Conditions')),
+        models.TextField(verbose_name=_("Terms and Conditions"))
     )
 
     date_created = models.DateTimeField(
-        verbose_name=_('Date and Time of Document Creation'),
+        verbose_name=_("Date and Time of Document Creation"),
         default=timezone.now,
         db_index=True,
     )
@@ -59,44 +53,42 @@ class Term(models.Model):
         return '{0}, Group:"{1}" on {2}, {3}'.format(
             self.id,
             self.group_key.name,
-            self.date_created.strftime('%Y-%m-%d-%T'),
+            self.date_created.strftime("%Y-%m-%d-%T"),
             self.title,
         )
 
     class Meta:
-        verbose_name = _('Terms & Conditions')
-        verbose_name_plural = _('Terms & Conditions')
+        verbose_name = _("Terms & Conditions")
+        verbose_name_plural = _("Terms & Conditions")
 
 
 class NotaryPublic(models.Model):
     user_key = models.ForeignKey(
         get_user_model(),
-        verbose_name=_('User'),
+        verbose_name=_("User"),
         on_delete=models.PROTECT,
-        related_name='agreed_terms',
+        related_name="agreed_terms",
     )
     term_key = models.ForeignKey(
         Term,
-        verbose_name=_('Terms and Conditions'),
+        verbose_name=_("Terms and Conditions"),
         on_delete=models.PROTECT,
-        related_name='users_agreed',
+        related_name="users_agreed",
     )
     date_signed = models.DateTimeField(
-        verbose_name=_('Date and Time of User Consent'),
+        verbose_name=_("Date and Time of User Consent"),
         default=timezone.now,
         db_index=True,
-        )
+    )
 
     objects = BaseRelatedManager()
 
     def __str__(self):
-        return '{0}: User:{1}, Term-id:{2}'.format(
-            self.id,
-            self.user_key.username,
-            self.term_key_id,
+        return "{0}: User:{1}, Term-id:{2}".format(
+            self.id, self.user_key.username, self.term_key_id
         )
 
     class Meta:
-        verbose_name = _('Notary Public')
-        verbose_name_plural = _('Notary Public')
-        unique_together = ('user_key', 'term_key')
+        verbose_name = _("Notary Public")
+        verbose_name_plural = _("Notary Public")
+        unique_together = ("user_key", "term_key")

@@ -23,9 +23,9 @@ class UserFactory(factory.DjangoModelFactory):
     class Meta:
         model = get_user_model()
 
-    username = factory.Faker('user_name')
-    password = factory.Faker('password')
-    email = factory.Faker('email')
+    username = factory.Faker("user_name")
+    password = factory.Faker("password")
+    email = factory.Faker("email")
     is_active = True
     is_staff = True
     is_superuser = factory.Iterator([False, True], cycle=True)
@@ -53,30 +53,30 @@ class UserFactory(factory.DjangoModelFactory):
                 self.user_permissions.add(permission)
 
 
-Meta = type('Meta', (), {'model': models.Term})
+Meta = type("Meta", (), {"model": models.Term})
 main = {
-    '__module__': 'letsagree.tests.factories',
-    'group_key': factory.SubFactory('letsagree.tests.factories.GroupFactory'),
-    'Meta': Meta,
+    "__module__": "letsagree.tests.factories",
+    "group_key": factory.SubFactory("letsagree.tests.factories.GroupFactory"),
+    "Meta": Meta,
 }
 summaries = {
-    'summary_{0}'.format(lang[0]): factory.Faker('paragraphs', nb=3)
+    "summary_{0}".format(lang[0]): factory.Faker("paragraphs", nb=3)
     for lang in settings.LANGUAGES
 }
 contents = {
-    'content_{0}'.format(lang[0]): factory.Faker('paragraphs', nb=12)
+    "content_{0}".format(lang[0]): factory.Faker("paragraphs", nb=12)
     for lang in settings.LANGUAGES
 }
 attrs = {**main, **summaries, **contents}
 
-TermFactory = type('TermFactory', (factory.DjangoModelFactory, ), attrs)
+TermFactory = type("TermFactory", (factory.DjangoModelFactory,), attrs)
 
 
 class GroupFactory(factory.DjangoModelFactory):
     class Meta:
         model = Group
 
-    name = factory.Sequence(lambda n: 'Group {0}'.format(n))
+    name = factory.Sequence(lambda n: "Group {0}".format(n))
     # terms = factory.RelatedFactory(TermFactory, 'group_key')
 
 

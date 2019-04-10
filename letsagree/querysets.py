@@ -19,24 +19,25 @@ from django.db.models.functions import FirstValue
 
 class TermQS(models.QuerySet):
     def prepare_active_terms(self, user_id):
-        '''
+        """
         The query opens a window, groups all entries by the group they belong to,
         orders them by the date and annotates the first one of each group
         to a field called 'active_terms'.
-        '''
+        """
         return (
             self.filter(group_key__user=user_id)
             .annotate(
                 active_terms=Window(
-                    expression=FirstValue('id'),
-                    partition_by=['group_key'],
-                    order_by=F('date_created').desc(),)
+                    expression=FirstValue("id"),
+                    partition_by=["group_key"],
+                    order_by=F("date_created").desc(),
+                )
             )
             .distinct()
         )
 
     def get_pending_terms(self, user_id):
-        '''
+        """
         Query that returns the user's pending to be signed terms.
 
         1 db hit.
@@ -48,17 +49,13 @@ class TermQS(models.QuerySet):
         a term that was in effect in a period during which he did not
         happen to log in. He will agree, however, to the newest term that
         follows the missed one.
-        '''
-        return (
-            self.filter(
-                id__in=self.prepare_active_terms(user_id)
-                .values_list('active_terms')
-            )
-            .exclude(users_agreed__user_key_id=user_id)
-        )
+        """
+        return self.filter(
+            id__in=self.prepare_active_terms(user_id).values_list("active_terms")
+        ).exclude(users_agreed__user_key_id=user_id)
 
     def get_signed_agreements(self, user_id):
-        '''
+        """
         Query that returns the user's signed agreements.
 
         2 db hits
@@ -71,24 +68,23 @@ class TermQS(models.QuerySet):
 
         values_list('active_terms') returns only the latest term
         which is currently in effect for each group.
-        '''
+        """
         from letsagree.models import NotaryPublic
 
         return (
             self.filter(
-                id__in=self.prepare_active_terms(user_id)
-                .values_list('active_terms')
+                id__in=self.prepare_active_terms(user_id).values_list("active_terms")
             )
             .filter(users_agreed__user_key_id=user_id)
             .prefetch_related(
                 models.Prefetch(
-                    'users_agreed',
+                    "users_agreed",
                     queryset=(
-                        NotaryPublic.objects
-                        .filter(user_key_id=user_id)
-                        .order_by('-date_signed')
+                        NotaryPublic.objects.filter(user_key_id=user_id).order_by(
+                            "-date_signed"
+                        )
                     ),
-                    to_attr='signature_dates',
+                    to_attr="signature_dates",
                 )
             )
         )
