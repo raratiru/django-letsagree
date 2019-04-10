@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 08 Apr 2019 07:00:40 PM EEST (19:00)
 #
-#       Last Modified : Thu 11 Apr 2019 12:45:42 AM EEST (00:45)
+#       Last Modified : Thu 11 Apr 2019 01:40:30 AM EEST (01:40)
 #
 # ==============================================================================
 
@@ -37,8 +37,16 @@ setup(
     include_package_data=True,
     install_requires=["Django>=2.1", "django-translated-fields"],
     setup_requires=["pytest-runner"],
-    tests_require=["pytest", "pytest-cov"],
-    extras_require={"dev": ["pytest", "pytest-cov", "ipdb"]},
+    tests_require=[
+        "pytest-django",
+        "pytest-factoryboy",
+        "pytest-cov",
+        "psycopg2-binary",
+        "django-translated-fields",
+        "Django",
+        "mysqlclient",
+    ],
+    extras_require={"dev": ["ipdb"]},
     zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
