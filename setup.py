@@ -36,17 +36,6 @@ setup(
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=["Django>=2.1", "django-translated-fields"],
-    setup_requires=["pytest-runner"],
-    tests_require=[
-        "pytest-django",
-        "pytest-factoryboy",
-        "pytest-cov",
-        "psycopg2-binary",
-        "django-translated-fields",
-        "Django",
-        "mysqlclient",
-    ],
-    extras_require={"dev": ["ipdb"]},
     zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",

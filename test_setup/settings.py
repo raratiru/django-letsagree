@@ -8,7 +8,7 @@
 #
 #       Creation Date : Tue 09 Apr 2019 01:19:13 AM EEST (01:19)
 #
-#       Last Modified : Wed 10 Apr 2019 08:18:40 PM EEST (20:18)
+#       Last Modified : Sat 13 Apr 2019 09:50:51 PM EEST (21:50)
 #
 # ==============================================================================
 
@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "letsagree",
 ]
-
 
 LANGUAGE_CODE = "en"
 
