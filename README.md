@@ -1,8 +1,6 @@
 Let's Agree
 ======
 
-**This project is not yet published to pypi. It can be installed from github.**
-
 About
 ---
 
