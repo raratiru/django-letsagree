@@ -20,7 +20,7 @@ If the user does not provide consent, the following actions are only allowed:
 
 * Logout.
 * View and delete all instances of own consent provided.
-* View all terms
+* View all Terms
 
 
 Prerequisites
@@ -67,8 +67,9 @@ Installation
     }
     ```
 
-    Make sure [LANGUAGE_CODE](https://docs.djangoproject.com/en/dev/ref/settings/#language-code) is properly set as explained in the [Translation](#translation) section.
-    The default implementation will create as many fields as the number of languages Django supports.
+      * Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
+        The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
+
     Then:
     ```python
     ./manage.py makemigrations letsagree
@@ -160,7 +161,10 @@ All strings in `django-letsagree` are marked with one of the following ways whic
 
 A good starting point could be the default css file provided by `django-letsagree`:
 
-`LETSAGREE_CSS = {'all': ('letsagree/letsagree.css',)}`
+settings.py:
+```python
+LETSAGREE_CSS = {'all': ('letsagree/letsagree.css',)}
+```
 
 Of course, one can completely [override the templates](https://docs.djangoproject.com/en/dev/howto/overriding-templates/).
 
@@ -169,14 +173,14 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear in the top right corner of both templates.
+* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear on the top right corner of both templates.
 
   This is formed as `reverse(<LETSAGREE_LOGOUT_APP_NAME>:logout)`.
 
   The logout link defaults to `reverse('admin:logout')`.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
-* `LETSAGREE_BORDER_HEADER`: Text that will appear in the top left corner of the default template.
+* `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
 
 
 Permissions
@@ -217,7 +221,7 @@ To run the test suite, you need:
 
 Unfortunatelly, the test suite is rather complicated. Sorry!
 
-### Coverage: Not Included
+### Coverage: Not tested
 
 * `LETSAGREE_CSS`
 * `LETSAGREE_JS`
