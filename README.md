@@ -5,7 +5,7 @@ Features
 --------
 
 * Terms [versioning](#version) in [`deque`](https://docs.python.org/3.7/library/collections.html#collections.deque) style with `maxlen=1`.
-* Per-Group Term association, per-user Term acceptance for each Group a user belongs to.
+* Per-Group Term association, per-User Term acceptance for each Group a user belongs to.
 * [Max 1 query](#queries), either per request or per day for each logged-in user.
 * [Multi-language](#translation) ready.
 * [Freedom](#permissions) for each user to withdraw consent at any time.
