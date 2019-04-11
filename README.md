@@ -6,7 +6,7 @@ Features
 
 * Terms [versioning](#version) in [`deque`](https://docs.python.org/3.7/library/collections.html#collections.deque) style with `maxlen=1`.
 * Per-Group Term association, per-user Term acceptance for each Group a user belongs to.
-* Max [1 query](#queries), either per request or per day for each logged-in user.
+* [Max 1 query](#queries), either per request or per day for each logged-in user.
 * [Multi-language](#translation) ready.
 * [Freedom](#permissions) for each user to withdraw consent at any time.
 
@@ -36,7 +36,8 @@ Prerequisites
 
 * Python 3.5, 3.6, 3.7
 * Django 2.1, 2.2
-* [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/)
+* [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
+* [Django Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
 
