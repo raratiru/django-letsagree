@@ -212,7 +212,7 @@ If all permissions for `django-letsagree` models are delegated to a group, the b
 | delete_notarypublic | **True** | False | **True** | False |
 
 
-<a name='varsion'></a>
+<a name='version'></a>
 New Term Version
 ----------------
 If two instances of Term associate with the same Group, the instance saved-last is the latest version. All logged in users have to provide consent for this latest version, independently of any previous consent they may have or have not given for the Terms associated with this Group.
