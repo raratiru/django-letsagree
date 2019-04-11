@@ -1,6 +1,16 @@
 Let's Agree
 ======
 
+Features
+--------
+
+* Terms [versioning](#version) in [`deque`](https://docs.python.org/3.7/library/collections.html#collections.deque) style with `maxlen=1`.
+* Per-Group Term association, per-user Term acceptance for each Group a user belongs to.
+* Max [1 query](#queries), either per request or per day for each logged-in user.
+* [Multi-language](#translation) ready.
+* [Freedom](#permissions) for each user to withdraw consent at any time.
+
+
 About
 ---
 
@@ -28,6 +38,7 @@ Prerequisites
 * Django 2.1, 2.2
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
+* [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
 
 Installation
 -------
@@ -100,7 +111,7 @@ LETSAGREE_LOGOUT_APP_NAME = 'admin'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
 ```
-
+<a name='queries'></a>
 ### Database queries
 
 
@@ -120,7 +131,7 @@ Tip: [django-hashid-field](https://github.com/nshafer/django-hashid-field), is a
 
 #### Database
 
-By default `lestagree` installs a tiny library [`django-translated-fields`](https://github.com/matthiask/django-translated-fields) to cater for translating the `title`, `summary` and `content` fields of the `Term` model. This library will create separate fields for each entry in the [`LANGUAGES`](https://docs.djangoproject.com/en/dev/ref/settings/#languages) list.
+By default `lestagree` installs [`django-translated-fields`](https://github.com/matthiask/django-translated-fields) to cater for translating the `title`, `summary` and `content` fields of the `Term` model. This library will create separate fields for each entry in the [`LANGUAGES`](https://docs.djangoproject.com/en/dev/ref/settings/#languages) list.
 
 The first entry of this list is considered as the "default language". The relevant database field is marked as `blank=False` and it serves as a fallback value. This value is returned if an entry for the requested language does not exist.
 
@@ -180,7 +191,7 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
 * `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
 
-
+<a name='permissions'></a>
 Permissions
 -----------
 
@@ -201,7 +212,7 @@ If all permissions for `django-letsagree` models are delegated to a group, the b
 | delete_notarypublic | **True** | False | **True** | False |
 
 
-
+<a name='varsion'></a>
 New Term Version
 ----------------
 If two instances of Term associate with the same Group, the instance saved-last is the latest version. All logged in users have to provide consent for this latest version, independently of any previous consent they may have or have not given for the Terms associated with this Group.
