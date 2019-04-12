@@ -233,6 +233,6 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 ### Coverage: Not tested
 
-* `LETSAGREE_CSS`
-* `LETSAGREE_JS`
-* `letsagree.admin.term_parents`
+* [`LETSAGREE_CSS`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/forms.py#L42-L44)
+* [`LETSAGREE_JS`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/forms.py#L42-L44)
+* [`letsagree.admin.term_parents`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/admin.py#L23-L27)
