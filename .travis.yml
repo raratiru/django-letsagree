@@ -15,8 +15,8 @@ services:
   - mysql
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - psql -c "CREATE USER the_user WITH PASSWORD the_user;" -U postgres
-  - psql -c "GRANT ALL PRIVILEGES ON DATABASE travis_ci_test to the_user;" -U postgres
+  - psql -c "CREATE USER echo $TOX_DB_PASSWD WITH PASSWORD echo $TOX_DB_USER;" -U postgres
+  - psql -c "GRANT ALL PRIVILEGES ON DATABASE travis_ci_test to echo $TOX_DB_USER;" -U postgres
   - mysql -u root -e 'CREATE DATABASE travis_ci_test;'
   - mysql -u root -e "CREATE USER 'the_user'@'localhost' IDENTIFIED BY 'the_user';"
   - mysql -u root -e "GRANT ALL ON travis_ci_test.* TO 'the_user'@'localhost';"
