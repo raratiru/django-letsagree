@@ -1,0 +1,23 @@
+dist: xenial
+language: python
+python:
+  - '3.5'
+  - '3.6'
+  - '3.7'
+install:
+  - pip install tox-travis
+script:
+  - tox
+after_success:
+  # - coveralls
+services:
+  - postgresql
+  - mysql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c "CREATE USER the_user WITH PASSWORD 'the_user';" -U postgres
+  - psql -c "GRANT ALL PRIVILEGES ON DATABASE 'travis_ci_test' to the_user;" -U postgres
+  - mysql -u root -e 'CREATE DATABASE travis_ci_test;'
+  - mysql -u root -e "CREATE USER 'the_user'@'localhost' IDENTIFIED BY 'the_user';"
+  - mysql -u root -e "GRANT ALL ON travis_ci_test.* TO 'the_user'@'localhost';"
+  - mysql -u root -e "FLUSH PRIVILEGES;"
