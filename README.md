@@ -1,3 +1,11 @@
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/raratiru/django-letsagree.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/raratiru/django-letsagree/context:python)
+[![Build Status](https://travis-ci.com/raratiru/django-letsagree.svg?branch=master)](https://travis-ci.com/raratiru/django-letsagree)
+[![Coverage Status](https://coveralls.io/repos/github/raratiru/django-letsagree/badge.svg?branch=travis)](https://coveralls.io/github/raratiru/django-letsagree?branch=travis)
+[![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/raratiru/django-letsagree.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/raratiru/django-letsagree/alerts/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/raratiru/django-letsagree/blob/master/LICENSE)
+
 Let's Agree
 ======
 
@@ -236,3 +244,7 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 * [`LETSAGREE_CSS`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/forms.py#L42-L44)
 * [`LETSAGREE_JS`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/forms.py#L42-L44)
 * [`letsagree.admin.term_parents`](https://github.com/raratiru/django-letsagree/blob/9436ddabb4467477ecb39d94fd09b6f574e9384f/letsagree/admin.py#L23-L27)
+
+Changelog
+---------
+1.0.1: Added Travis, Coverage, LGTM, PyUp CI

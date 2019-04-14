@@ -8,11 +8,25 @@
 #
 #       Creation Date : Tue 09 Apr 2019 01:19:13 AM EEST (01:19)
 #
-#       Last Modified : Thu 11 Apr 2019 12:42:11 AM EEST (00:42)
+#       Last Modified : Mon 15 Apr 2019 07:57:12 PM EEST (19:57)
 #
 # ==============================================================================
 
 import os
+from collections import namedtuple
+
+Settings = namedtuple("Settings", ["username", "password"])
+
+db = {
+    "django.db.backends.postgresql": Settings(
+        username=os.environ.get("POSTGRES_USER", os.environ.get("TOX_DB_USER")),
+        password=os.environ.get("POSTGRES_PASSWD", os.environ.get("TOX_DB_PASSWD")),
+    ),
+    "django.db.backends.mysql": Settings(
+        username=os.environ.get("MARIADB_USER", os.environ.get("TOX_DB_USER")),
+        password=os.environ.get("MARIADB_PASSWD", os.environ.get("TOX_DB_PASSWD")),
+    ),
+}
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,10 +34,11 @@ DATABASES = {
     "default": {
         "ENGINE": os.environ["TOX_DB_ENGINE"],
         "NAME": os.environ["TOX_DB_NAME"],
-        "USER": os.environ["TOX_DB_USER"],
-        "PASSWORD": os.environ["TOX_DB_PASSWD"],
+        "USER": db[os.environ["TOX_DB_ENGINE"]].username,
+        "PASSWORD": db[os.environ["TOX_DB_ENGINE"]].password,
     }
 }
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
