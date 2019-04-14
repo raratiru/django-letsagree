@@ -16,5 +16,3 @@ services:
   - mysql
 before_script:
   - sh test_setup/db_script.sh
-virtualenv:
-  system_site_packages: true
