@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 08 Apr 2019 07:00:40 PM EEST (19:00)
 #
-#       Last Modified : Thu 11 Apr 2019 01:45:53 AM EEST (01:45)
+#       Last Modified : Tue 16 Apr 2019 12:36:19 AM EEST (00:36)
 #
 # ==============================================================================
 
@@ -22,7 +22,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="django-letsagree",
-    version="1.0.0",
+    version="1.0.1",
     python_requires=">=3.5",
     description=(
         "A django application that associates Groups with Terms "
