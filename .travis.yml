@@ -17,7 +17,7 @@ services:
   - postgresql
   - mysql
 addons:
-  mariadb: 10.2
+  mariadb: 10.3
 env:
   - MARIADB_USER=root MARIADB_PASSWD= POSTGRES_USER=postgres POSTGRES_PASSWD= TOX_DB_NAME=letsagree
 after_success:
