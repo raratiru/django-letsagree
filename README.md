@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/raratiru/django-letsagree.svg?branch=master&style=plastic)](https://travis-ci.com/raratiru/django-letsagree)
 [![Coverage Status](https://coveralls.io/repos/github/raratiru/django-letsagree/badge.svg?branch=travis&style=plastic)](https://coveralls.io/github/raratiru/django-letsagree?branch=travis)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=plastic)](https://github.com/ambv/black)
+
 [![Django Versions](https://img.shields.io/badge/Django-2.1%20|%202.2-brown.svg?style=plastic)](https://www.djangoproject.com/download/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?color=%236600cc&label=Python&style=plastic)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
 [![Database Window Functionality](https://img.shields.io/badge/Database-Window%20Func-important.svg?style=plastic)](https://www.sql-workbench.eu/dbms_comparison.html)
