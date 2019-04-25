@@ -6,7 +6,7 @@
 
 [![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?color=%236600cc&label=Python)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
 [![Django Versions](https://img.shields.io/badge/Django-2.1%20|%202.2-brown.svg)](https://www.djangoproject.com/download/)
-[![Database Window Functionality](https://img.shields.io/badge/Database-Window%20Func-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
+[![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
 Let's Agree
 ======
