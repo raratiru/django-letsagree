@@ -4,8 +4,8 @@
 [![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-[![Django Versions](https://img.shields.io/badge/Django-2.1%20|%202.2-brown.svg)](https://www.djangoproject.com/download/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?color=%236600cc&label=Python)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
+[![Django Versions](https://img.shields.io/badge/Django-2.1%20|%202.2-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functionality](https://img.shields.io/badge/Database-Window%20Func-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
 Let's Agree
