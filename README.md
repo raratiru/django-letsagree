@@ -59,7 +59,7 @@ Installation
     ```python
     INSTALLED_APPS = [
         ...
-        'letsagree',
+        'letsagree.apps.LetsagreeConfig',
         ...
     ]
 
