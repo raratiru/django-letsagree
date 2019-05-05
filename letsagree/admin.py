@@ -56,7 +56,7 @@ class NotaryPublicAdmin(admin.ModelAdmin):
             return qs
         return qs.filter(user_key_id=request.user.id)
 
-    def has_add_permission(self, request, obj=None):
+    def has_add_permission(self, request):
         return False
 
     def has_delete_permission(self, request, obj=None):
