@@ -22,7 +22,7 @@ from translated_fields import to_attribute
 class PendingConsentForm(forms.ModelForm):
     agree = forms.BooleanField(required=True, label=_("I Give my Consent"))
 
-    def save(self, *args, **kwargs):
+    def save(self, commit=False):
         """
         There is nothing to save. This form is a building block of a formset
         with read-only contents.
