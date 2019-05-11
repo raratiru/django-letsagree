@@ -1,0 +1,4 @@
+requirements:
+  - test_setup/requirements.txt
+      update: all
+      pin: True

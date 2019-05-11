@@ -35,10 +35,12 @@ class TermAdmin(*term_parents):
     readonly_fields = ("date_created",)
     search_fields = ("id", to_attribute("title"))
 
-    def has_delete_permission(self, request, obj=None):
+    @staticmethod
+    def has_delete_permission(request, obj=None):
         return False
 
-    def has_change_permission(self, request, obj=None):
+    @staticmethod
+    def has_change_permission(request, obj=None):
         return False
 
 
@@ -56,15 +58,18 @@ class NotaryPublicAdmin(admin.ModelAdmin):
             return qs
         return qs.filter(user_key_id=request.user.id)
 
-    def has_add_permission(self, request, obj=None):
+    @staticmethod
+    def has_add_permission(request):
         return False
 
-    def has_delete_permission(self, request, obj=None):
+    @staticmethod
+    def has_delete_permission(request, obj=None):
         if obj:
             return request.user.id == obj.user_key_id
         return False
 
-    def has_change_permission(self, request, obj=None):
+    @staticmethod
+    def has_change_permission(request, obj=None):
         return False
 
     def response_delete(self, request, obj_display, obj_id):
