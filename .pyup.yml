@@ -1,4 +1,5 @@
+schedule: "every week"
 requirements:
-  - test_setup/requirements.txt
+  - test_setup/requirements.txt:
       update: all
       pin: True
