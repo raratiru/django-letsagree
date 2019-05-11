@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/raratiru/django-letsagree.svg?branch=master)](https://travis-ci.com/raratiru/django-letsagree)
 [![Coverage Status](https://coveralls.io/repos/github/raratiru/django-letsagree/badge.svg?branch=travis)](https://coveralls.io/github/raratiru/django-letsagree?branch=travis)
 [![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
+[![Known Vulnerabilities](https://snyk.io/test/github/raratiru/django-letsagree/badge.svg?targetFile=test_setup%2Frequirements.txt)](https://snyk.io/test/github/raratiru/django-letsagree?targetFile=test_setup%2Frequirements.txt)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 [![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?color=%236600cc&label=Python)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
