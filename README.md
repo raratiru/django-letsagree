@@ -6,7 +6,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/raratiru/django-letsagree/badge.svg?targetFile=test_setup%2Frequirements.txt)](https://snyk.io/test/github/raratiru/django-letsagree?targetFile=test_setup%2Frequirements.txt)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-[![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?color=%236600cc&label=Python)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
+[![Python Versions](https://img.shields.io/badge/Python-3.5%20|%203.6%20|%203.7%20|%203.8-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
 [![Django Versions](https://img.shields.io/badge/Django-2.1%20|%202.2-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
