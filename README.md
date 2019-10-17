@@ -46,7 +46,7 @@ If the user does not provide consent, the following actions are only allowed:
 Prerequisites
 -------
 
-* Python 3.5, 3.6, 3.7
+* Python 3.5, 3.6, 3.7, 3.8
 * Django 2.1, 2.2
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * [Django Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) (enabled by default in Django)
