@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 18 Mar 2019 12:03:21 AM EET (00:03)
 #
-#       Last Modified : Wed 03 Apr 2019 09:29:13 PM EEST (21:29)
+#       Last Modified : Sun 20 Oct 2019 03:10:27 PM EEST (15:10)
 #
 # ==============================================================================
 
@@ -89,8 +89,9 @@ def queries(user_factory, group_factory, term_factory, notary_public_factory):
 @pytest.fixture
 def users(user_factory):
     """
-    Return a superuser or a staff user with all available permissions for
-    notarypublic and term.
+    Return either:
+        * a superuser
+        * a staff user with all available permissions for notarypublic and term
     """
     permissions = Permission.objects.filter(
         Q(codename__contains="notarypublic") | Q(codename__contains="term")
@@ -110,6 +111,18 @@ def users(user_factory):
 @pytest.fixture
 def many_terms(term_factory):
     return term_factory.create_batch(20)
+
+
+@pytest.fixture
+def many_terms_one_view_user(term_factory, user_factory, group):
+    permissions = Permission.objects.filter(
+        Q(Q(codename__contains="notarypublic") & Q(codename__contains='view'))
+        | Q(Q(codename__contains="term") & Q(codename__contains='view'))
+    )
+    term_factory.create_batch(20)
+    staff_view_user = user_factory.create(is_superuser=False, groups=(group,), user_permissions=permissions)
+    term_factory.create(group_key=group)
+    return staff_view_user
 
 
 @pytest.fixture

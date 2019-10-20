@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Sun 07 Apr 2019 09:15:18 PM EEST (21:15)
+#       Last Modified : Sun 20 Oct 2019 02:31:39 PM EEST (14:31)
 #
 # ==============================================================================
 
@@ -42,6 +42,13 @@ class TermAdmin(*term_parents):
     @staticmethod
     def has_change_permission(request, obj=None):
         return False
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.has_perm('letsagree.add_term'):
+            return qs
+        else:
+            return qs.filter(group_key__user=request.user)
 
 
 @admin.register(models.NotaryPublic)

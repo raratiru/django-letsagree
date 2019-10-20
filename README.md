@@ -129,7 +129,6 @@ LETSAGREE_JS = ()
 LETSAGREE_LOGOUT_APP_NAME = 'admin'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
-LETSAGREE_VIEW_OWN_TERMS_ONLY = False
 ```
 <a name='queries'></a>
 ### Database queries
@@ -231,6 +230,7 @@ If all permissions for `django-letsagree` models are delegated to a group, the b
 | change_notarypublic | False | False | False | False |
 | delete_notarypublic | **True** | False | **True** | False |
 
+Users who have permission to add a new term, are allowed to read all the available terms. Otherwise, each user can only read the terms related to the group that he or she belongs to.
 
 <a name='version'></a>
 New Term Version
