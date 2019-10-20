@@ -55,9 +55,9 @@ Prerequisites
 
 Installation
 -------
-* `pip install django-letsagree`
+1. `pip install django-letsagree`
 
-* project/settings.py
+2. project/settings.py
     ```python
     INSTALLED_APPS = [
         ...
@@ -72,33 +72,20 @@ Installation
     ]
     ```
 
-* `django-letsagree` itself does not come with any migrations. It is recommended
-    that you add migrations for its models in your project and avoid using the
-    word `migrations` as the name of the folder.
-
-    The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
-    In the following example, we will create a folder called `3p_migrations`
-    in the main project folder where `settings.py` lies.
-
-    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
+3. `<project>` is the name of the project that hosts django-letsagree
 
     project/settings.py:
     ```python
     MIGRATION_MODULES = {
-        'letsagree': 'project.3p_migrations.letsagree',
+        'letsagree': '<project>.3p_migrations.letsagree',
     }
     ```
 
-    * Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
-      The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
+4. Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
+  The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
 
-    Then:
-    ```python
-    ./manage.py makemigrations letsagree
-    ./manage.py migrate
-    ```
 
-* project/urls.py:
+5. project/urls.py:
 
     ```python
     urlpatterns = [
@@ -108,8 +95,27 @@ Installation
     ]
     ```
 
+6. Create the migrations:
 
-* [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
+    ```python
+    ./manage.py makemigrations letsagree
+    ./manage.py migrate
+    ```
+
+
+7. [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
+
+### Notes on installation
+
+* `django-letsagree` itself does not come with any migrations. It is recommended
+    that you add migrations for its models in your project and avoid using the
+    word `migrations` as the name of the folder.
+
+    The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
+    In the following example, we will create a folder called `3p_migrations`
+    in the main project folder where `settings.py` lies.
+
+    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
 
 
 Settings
@@ -224,6 +230,9 @@ If all permissions for `django-letsagree` models are delegated to a group, the b
 | change_notarypublic | False | False | False | False |
 | delete_notarypublic | **True** | False | **True** | False |
 
+### Term changelist contents
+
+Users who have permission to add a new term, are allowed to read all the available terms. Otherwise, each user can only read the terms related to the group that he or she belongs to.
 
 <a name='version'></a>
 New Term Version
@@ -251,6 +260,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.0.3: Only users with add_perm can see all the Terms in changelist
+
 1.0.2: Addressed codacy reports, updated readme, installed pyup, snyk
 
 1.0.1: Added Travis, Coverage, LGTM, PyUp CI

@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 01 Apr 2019 09:09:39 PM EEST (21:09)
 #
-#       Last Modified : Mon 08 Apr 2019 03:15:13 PM EEST (15:15)
+#       Last Modified : Sun 20 Oct 2019 03:12:32 PM EEST (15:12)
 #
 # ==============================================================================
 
@@ -76,12 +76,24 @@ def test_term_changelist(users, many_terms, rf, django_assert_num_queries):
 
     request = rf.get(url)
     request.user = users("staff")
-    with django_assert_num_queries(1):
+    with django_assert_num_queries(3):
         qs = model_admin.get_queryset(request)
         assert qs.count() == len(many_terms)
-    with django_assert_num_queries(5):
+    with django_assert_num_queries(3):
         view = model_admin.changelist_view(request)
         assert view.status_code == 200
+
+
+def test_view_user_term_changelist(many_terms_one_view_user, rf):
+    model_admin = admin.TermAdmin(models.Term, site)
+
+    url = reverse("admin:letsagree_term_changelist")
+
+    request = rf.get(url)
+    request.user = many_terms_one_view_user
+    qs = model_admin.get_queryset(request)
+    assert models.Term.objects.count() > 1
+    assert qs.count() == 1
 
 
 @pytest.mark.parametrize(
