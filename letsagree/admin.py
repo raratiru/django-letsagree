@@ -45,7 +45,7 @@ class TermAdmin(*term_parents):
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        if request.user.has_perm('letsagree.add_term'):
+        if request.user.has_perm("letsagree.add_term"):
             return qs
         else:
             return qs.filter(group_key__user=request.user)

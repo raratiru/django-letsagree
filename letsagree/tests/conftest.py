@@ -116,11 +116,13 @@ def many_terms(term_factory):
 @pytest.fixture
 def many_terms_one_view_user(term_factory, user_factory, group):
     permissions = Permission.objects.filter(
-        Q(Q(codename__contains="notarypublic") & Q(codename__contains='view'))
-        | Q(Q(codename__contains="term") & Q(codename__contains='view'))
+        Q(Q(codename__contains="notarypublic") & Q(codename__contains="view"))
+        | Q(Q(codename__contains="term") & Q(codename__contains="view"))
     )
     term_factory.create_batch(20)
-    staff_view_user = user_factory.create(is_superuser=False, groups=(group,), user_permissions=permissions)
+    staff_view_user = user_factory.create(
+        is_superuser=False, groups=(group,), user_permissions=permissions
+    )
     term_factory.create(group_key=group)
     return staff_view_user
 

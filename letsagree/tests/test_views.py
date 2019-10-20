@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Tue 09 Apr 2019 03:18:22 AM EEST (03:18)
+#       Last Modified : Sun 20 Oct 2019 03:29:49 PM EEST (15:29)
 #
 # ==============================================================================
 
@@ -119,6 +119,4 @@ def test_view_post(queries, admin_client, settings):
     # possible?
     assert response.url == "/"
     assert request.user.agreed_terms.count() == 3
-    assert tuple(request.user.agreed_terms.values_list("term_key_id")) == tuple(
-        term_ids
-    )
+    assert set(request.user.agreed_terms.values_list("term_key_id")) == set(term_ids)

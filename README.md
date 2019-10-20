@@ -72,7 +72,7 @@ Installation
     ]
     ```
 
-3. "<project>" is the name of the project that hosts django-letsagree
+3. `<project>` is the name of the project that hosts django-letsagree
 
     project/settings.py:
     ```python
@@ -229,6 +229,8 @@ If all permissions for `django-letsagree` models are delegated to a group, the b
 | add_notarypublic | False |  | False |  |
 | change_notarypublic | False | False | False | False |
 | delete_notarypublic | **True** | False | **True** | False |
+
+### Term changelist contents
 
 Users who have permission to add a new term, are allowed to read all the available terms. Otherwise, each user can only read the terms related to the group that he or she belongs to.
 
