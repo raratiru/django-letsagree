@@ -55,9 +55,9 @@ Prerequisites
 
 Installation
 -------
-* `pip install django-letsagree`
+1. `pip install django-letsagree`
 
-* project/settings.py
+2. project/settings.py
     ```python
     INSTALLED_APPS = [
         ...
@@ -72,33 +72,20 @@ Installation
     ]
     ```
 
-* `django-letsagree` itself does not come with any migrations. It is recommended
-    that you add migrations for its models in your project and avoid using the
-    word `migrations` as the name of the folder.
-
-    The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
-    In the following example, we will create a folder called `3p_migrations`
-    in the main project folder where `settings.py` lies.
-
-    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
+3. "<project>" is the name of the project that hosts django-letsagree
 
     project/settings.py:
     ```python
     MIGRATION_MODULES = {
-        'letsagree': 'project.3p_migrations.letsagree',
+        'letsagree': '<project>.3p_migrations.letsagree',
     }
     ```
 
-    * Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
-      The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
+4. Make sure [LANGUAGES](https://docs.djangoproject.com/en/dev/ref/settings/#languages) are properly set as explained in the [Translation](#translation) section.
+  The default implementation will create as **many fields** as the number of `LANGUAGES` Django has set by default.
 
-    Then:
-    ```python
-    ./manage.py makemigrations letsagree
-    ./manage.py migrate
-    ```
 
-* project/urls.py:
+5. project/urls.py:
 
     ```python
     urlpatterns = [
@@ -108,8 +95,27 @@ Installation
     ]
     ```
 
+6. Create the migrations:
 
-* [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
+    ```python
+    ./manage.py makemigrations letsagree
+    ./manage.py migrate
+    ```
+
+
+7. [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
+
+### Notes on installation
+
+* `django-letsagree` itself does not come with any migrations. It is recommended
+    that you add migrations for its models in your project and avoid using the
+    word `migrations` as the name of the folder.
+
+    The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
+    In the following example, we will create a folder called `3p_migrations`
+    in the main project folder where `settings.py` lies.
+
+    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
 
 
 Settings
@@ -123,6 +129,7 @@ LETSAGREE_JS = ()
 LETSAGREE_LOGOUT_APP_NAME = 'admin'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
+LETSAGREE_VIEW_OWN_TERMS_ONLY = False
 ```
 <a name='queries'></a>
 ### Database queries
