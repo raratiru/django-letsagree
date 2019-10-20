@@ -260,6 +260,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.0.3: Only users with add_perm can see all the Terms in changelist
+
 1.0.2: Addressed codacy reports, updated readme, installed pyup, snyk
 
 1.0.1: Added Travis, Coverage, LGTM, PyUp CI
