@@ -8,17 +8,17 @@ python:
 install:
   - pip install tox-travis
   - pip install coveralls
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then pip install black flake8 bandit; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then pip install black flake8 bandit; fi
 script:
   - tox
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then black . --check; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then flake8 .; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then bandit letsagree/*; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then black . --check; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then flake8 .; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then bandit letsagree/*; fi
 services:
   - postgresql
   - mysql
 addons:
-  mariadb: 10.3
+  mariadb: 10.4.10
 env:
   - MARIADB_USER=root MARIADB_PASSWD= POSTGRES_USER=postgres POSTGRES_PASSWD= TOX_DB_NAME=letsagree
 after_success:
