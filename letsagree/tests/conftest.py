@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 18 Mar 2019 12:03:21 AM EET (00:03)
 #
-#       Last Modified : Sun 20 Oct 2019 03:10:27 PM EEST (15:10)
+#       Last Modified : Fri 27 Mar 2020 09:26:56 PM EET (21:26)
 #
 # ==============================================================================
 
@@ -64,22 +64,18 @@ def queries(user_factory, group_factory, term_factory, notary_public_factory):
         request = factory.get(request_url)
         if terms_agreed == "AnonymousUser":
             request.user = AnonymousUser()
-            request.session = {"_auth_user_id": request.user.id}
             Setup = namedtuple("Setup", ["request", "response"])
             return Setup(request=request, response=Mock())
         elif terms_agreed == "AgreedAndPending":
             request.user = user_agreed_pending
-            request.session = {"_auth_user_id": request.user.id}
             Setup = namedtuple("Setup", ["request", "response", "notary"])
             return Setup(request=request, response=Mock(), notary=notary_agreed_pending)
         elif not terms_agreed:
             request.user = user_not_agreed
-            request.session = {"_auth_user_id": request.user.id}
             Setup = namedtuple("Setup", ["request", "response"])
             return Setup(request=request, response=Mock())
         else:
             request.user = user_agreed
-            request.session = {"_auth_user_id": request.user.id}
             Setup = namedtuple("Setup", ["request", "response", "notary"])
             return Setup(request=request, response=Mock(), notary=notary_agreed)
 

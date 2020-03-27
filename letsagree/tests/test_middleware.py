@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 17 Mar 2019 03:47:22 PM EET (15:47)
 #
-#       Last Modified : Tue 09 Apr 2019 03:20:45 AM EEST (03:20)
+#       Last Modified : Fri 27 Mar 2020 09:27:36 PM EET (21:27)
 #
 # ==============================================================================
 
@@ -95,7 +95,7 @@ def test_middleware(
     settings.LETSAGREE_CACHE = cache_enabled
     settings.LETSAGREE_LOGOUT_APP_NAME = "admin"
     setup = queries(terms_agreed, request_url)
-    cache.delete("letsagree-{0}".format(setup.request.session["_auth_user_id"]))
+    cache.delete("letsagree-{0}".format(setup.request.user.id))
     with django_assert_num_queries(queries_count):
         middleware = LetsAgreeMiddleware(setup.response)
         middleware(setup.request)

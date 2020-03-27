@@ -49,7 +49,6 @@ Prerequisites
 * Python 3.5, 3.6, 3.7, 3.8
 * Django 2.2, 3.0
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
-* [Django Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
 
@@ -103,8 +102,6 @@ Installation
     ```
 
 
-7. [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
-
 ### Notes on installation
 
 * `django-letsagree` itself does not come with any migrations. It is recommended
@@ -112,11 +109,8 @@ Installation
     word `migrations` as the name of the folder.
 
     The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
-    In the following example, we will create a folder called `3p_migrations`
-    in the main project folder where `settings.py` lies.
-
-    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
-
+    In the above example, we store migrations inside `<project>/<project>/3p_migrations`.
+    
 
 Settings
 --------
