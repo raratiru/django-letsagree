@@ -38,7 +38,7 @@ class ConsentEvaluator:
         self.get_next = request.GET.get("next") or request.path
 
     def validate_user_intention(self):
-        '''
+        """
         Check if a logged user exists and whether this user is requesting a url
         that requires previous consent of the relevant tos.
         excluded urls form consent are:
@@ -48,7 +48,7 @@ class ConsentEvaluator:
               (the user who is entitled to add a new tos, has only the right to
               do so if he has already agreed to the current term in effect.)
             *
-        '''
+        """
         logout_url_app = (
             getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
         )
@@ -73,27 +73,23 @@ class ConsentEvaluator:
         return satisfied_prerequisites
 
     def get_or_set_cache(self, cache_key):
-        '''
+        """
         if cache exists:
             return its value
         else:
             set cache and return its new value
-        '''
+        """
         user_consent_required = cache.get(cache_key, None)
 
         if user_consent_required is None:
             cache_value = Term.objects.get_pending_terms(self.user_id).exists()
-            cache.set(
-                cache_key,
-                cache_value,
-                24 * 3600,
-            )
+            cache.set(cache_key, cache_value, 24 * 3600)
             return cache_value
         else:
             return user_consent_required
 
     def consent_is_required(self):
-        '''
+        """
         Return True if consent is required, else False.
         If cache is enabled:
             * check or set the cache
@@ -104,7 +100,7 @@ class ConsentEvaluator:
         uniquely identifies a user in the database. Nonetheless,
         django-hashid-field (https://github.com/nshafer/django-hashid-field),
         can obscure the user id while keeping its uniqueness.
-        '''
+        """
         if getattr(settings, "LETSAGREE_CACHE", False):
             cache_key = "letsagree-{0}".format(self.user_id)
             return self.get_or_set_cache(cache_key)
@@ -113,10 +109,10 @@ class ConsentEvaluator:
             return Term.objects.get_pending_terms(self.user_id).exists()
 
     def get_next_parameter(self):
-        '''
+        """
             If next parameter exists in request, set it also in the redirect
             unless it equals the url of the consent form.
-        '''
+        """
         return (
             "?next={0}".format(self.get_next)
             if self.get_next and self.get_next != reverse("letsagree:pending")

@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Sun 20 Oct 2019 03:29:49 PM EEST (15:29)
+#       Last Modified : Fri 27 Mar 2020 09:31:28 PM EET (21:31)
 #
 # ==============================================================================
 
@@ -108,7 +108,6 @@ def test_view_post(queries, admin_client, settings):
     factory = RequestFactory()
     request = factory.post("{0}?next=/".format(reverse("letsagree:pending")), data)
     request.user = setup.request.user
-    request.session = setup.request.session
     # User has not agreed to any terms yet
     assert request.user.agreed_terms.count() == 0
     the_view = views.PendingView.as_view()

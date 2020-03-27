@@ -49,7 +49,6 @@ Prerequisites
 * Python 3.5, 3.6, 3.7, 3.8
 * Django 2.2, 3.0
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
-* [Django Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
 
@@ -102,8 +101,6 @@ Installation
     ./manage.py migrate
     ```
 
-
-7. [Sessions](https://docs.djangoproject.com/en/dev/topics/http/sessions/#enabling-sessions) should be enabled.
 
 ### Notes on installation
 

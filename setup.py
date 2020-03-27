@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 08 Apr 2019 07:00:40 PM EEST (19:00)
 #
-#       Last Modified : Sun 20 Oct 2019 12:26:24 PM EEST (12:26)
+#       Last Modified : Fri 27 Mar 2020 10:47:49 PM EET (22:47)
 #
 # ==============================================================================
 
@@ -22,7 +22,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="django-letsagree",
-    version="1.0.4",
+    version="1.1.0",
     python_requires=">=3.5",
     description=(
         "A django application that associates Groups with Terms "
@@ -35,7 +35,7 @@ setup(
     license="BSD 3-Clause License",
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
-    install_requires=["Django>=2.1", "django-translated-fields"],
+    install_requires=["Django>=2.2", "django-translated-fields"],
     zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",

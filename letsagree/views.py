@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Mon 08 Apr 2019 03:46:56 PM EEST (15:46)
+#       Last Modified : Fri 27 Mar 2020 09:24:56 PM EET (21:24)
 #
 # ==============================================================================
 
@@ -38,7 +38,7 @@ class PendingView(FormView):
         """
         kwargs = super().get_form_kwargs()
         # Avoid KeyError that randomly occurs
-        user_id = self.request.session.get("_auth_user_id", self.request.user.id)
+        user_id = self.request.user.id
         kwargs["queryset"] = models.Term.objects.get_pending_terms(user_id)
         return kwargs
 
@@ -49,8 +49,7 @@ class PendingView(FormView):
         bulk_create could be used, but it is only compatible with PostgreSQL
         which, at the moment, is the only db able to handle autoincremented pk.
         """
-        # Avoid KeyError that randomly occurs
-        user_id = self.request.session.get("_auth_user_id", self.request.user.id)
+        user_id = self.request.user.id
         for sub_form in form:
             with transaction.atomic():
                 models.NotaryPublic.objects.create(
