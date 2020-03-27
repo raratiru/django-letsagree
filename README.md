@@ -109,11 +109,8 @@ Installation
     word `migrations` as the name of the folder.
 
     The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
-    In the following example, we will create a folder called `3p_migrations`
-    in the main project folder where `settings.py` lies.
-
-    If you wish to use a new folder, do not forget to create an empty `__init__.py` inside it.
-
+    In the above example, we store migrations inside `<project>/<project>/3p_migrations`.
+    
 
 Settings
 --------
