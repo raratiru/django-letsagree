@@ -7,7 +7,7 @@
 #
 #       Creation Date : Mon 28 Jan 2019 01:20:20 PM EET (13:20)
 #
-#       Last Modified : Mon 08 Apr 2019 03:46:40 PM EEST (15:46)
+#       Last Modified : Fri 27 Mar 2020 06:43:36 PM EET (18:43)
 #
 # ==============================================================================
 
@@ -23,6 +23,24 @@ class LetsAgreeMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        user_has_agreed = ConsentEvaluator(request)
+        response = user_has_agreed() or self.get_response
+        return response
+
+
+class ConsentEvaluator:
+    def __init__(self, request):
+        self.user_id = request.session.get("_auth_user_id", request.user.id)
+        self.qs = Term.objects.get_pending_terms(user_id)
+        logout_url_app = (
+            getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
+        )
+        self.logout_url = (
+            reverse("{0}:logout".format(logout_url_app)) if logout_url_app else ""
+        )
+        self.path = request.path
+
+    def __call__(self):
         """
         For a logged in user:
             During each request, check if the user has agreed to the terms
@@ -35,14 +53,6 @@ class LetsAgreeMiddleware:
             can obscure the user id while keeping its uniqueness.
         """
         # Avoid KeyError that randomly occurred in views.PendingView
-        user_id = request.session.get("_auth_user_id", request.user.id)
-        qs = Term.objects.get_pending_terms(user_id)
-        logout_url_app = (
-            getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
-        )
-        logout_url = (
-            reverse("{0}:logout".format(logout_url_app)) if logout_url_app else ""
-        )
         if all(
             (
                 user_id,
