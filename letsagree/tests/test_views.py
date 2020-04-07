@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Fri 27 Mar 2020 09:31:28 PM EET (21:31)
+#       Last Modified : Wed 08 Apr 2020 12:41:07 AM EEST (00:41)
 #
 # ==============================================================================
 
@@ -68,6 +68,22 @@ def test_view_structure(
     else:
         assert "There are no pending agreements" not in response.rendered_content
         assert "LOG OUT" not in response.rendered_content
+
+
+@pytest.mark.skipif(
+    all(
+        (
+            float(".".join(sqlite3.sqlite_version.split(".")[:2])) < 3.25,
+            "sqlite3" in settings.DATABASES["default"]["ENGINE"],
+        )
+    ),
+    reason="Window Function is not supported in this SQLite version",
+)
+def test_404_redirect(client, admin_client):
+    response = client.get("/letsagree/")
+    assert response.status_code == 404
+    response = admin_client.get("/letsagree/")
+    assert response.status_code == 200
 
 
 @pytest.mark.skipif(

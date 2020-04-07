@@ -254,6 +254,12 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.1: AnonymousUser should not access letsagree urls (receives 404)
+
+1.1.0: Refactored middleware for thread-safety
+
+1.0.4: Added support for Django-3.0, dropped support for Django-2.1
+
 1.0.3: Only users with add_perm can see all the Terms in changelist
 
 1.0.2: Addressed codacy reports, updated readme, installed pyup, snyk

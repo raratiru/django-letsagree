@@ -8,13 +8,14 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Fri 27 Mar 2020 09:24:56 PM EET (21:24)
+#       Last Modified : Tue 07 Apr 2020 11:43:40 PM EEST (23:43)
 #
 # ==============================================================================
 
 from django.db import transaction
 from django.conf import settings
 from django.core.cache import cache
+from django.http import Http404
 from django.urls import reverse, NoReverseMatch
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
@@ -28,6 +29,8 @@ class PendingView(FormView):
     form_class = PendingAgreementFormSet
 
     def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            raise Http404()
         self.success_url = request.GET.get("next")
         return super().dispatch(request, *args, **kwargs)
 
