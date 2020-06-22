@@ -28,9 +28,6 @@ def test_middleware_init():
     assert my_middleware.get_response == "response"
 
 
-print(settings.DATABASES)
-
-
 @pytest.mark.skipif(
     all(
         (
