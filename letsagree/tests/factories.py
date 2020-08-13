@@ -8,18 +8,18 @@
 #
 #       Creation Date : Tue 29 Jan 2019 11:33:11 PM EET (23:33)
 #
-#       Last Modified : Tue 02 Apr 2019 11:05:19 PM EEST (23:05)
+#       Last Modified : Thu 13 Aug 2020 09:37:03 PM EEST (21:37)
 #
 # ==============================================================================
 
-import factory
+from factory
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from letsagree import models
 
 
-class UserFactory(factory.DjangoModelFactory):
+class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = get_user_model()
 
@@ -69,10 +69,10 @@ contents = {
 }
 attrs = {**main, **summaries, **contents}
 
-TermFactory = type("TermFactory", (factory.DjangoModelFactory,), attrs)
+TermFactory = type("TermFactory", (factory.django.DjangoModelFactory,), attrs)
 
 
-class GroupFactory(factory.DjangoModelFactory):
+class GroupFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Group
 
@@ -80,7 +80,7 @@ class GroupFactory(factory.DjangoModelFactory):
     # terms = factory.RelatedFactory(TermFactory, 'group_key')
 
 
-class NotaryPublicFactory(factory.DjangoModelFactory):
+class NotaryPublicFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.NotaryPublic
 
