@@ -8,11 +8,11 @@
 #
 #       Creation Date : Tue 29 Jan 2019 11:33:11 PM EET (23:33)
 #
-#       Last Modified : Thu 13 Aug 2020 09:37:03 PM EEST (21:37)
+#       Last Modified : Thu 13 Aug 2020 09:41:07 PM EEST (21:41)
 #
 # ==============================================================================
+import factory
 
-from factory
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
