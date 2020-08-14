@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Fri 14 Aug 2020 03:27:12 PM EEST (15:27)
+#       Last Modified : Fri 14 Aug 2020 03:53:16 PM EEST (15:53)
 #
 # ==============================================================================
 
@@ -62,7 +62,8 @@ class PendingView(FormView):
         cache.set(cache_key, False, 24 * 3600)
         return super().form_valid(form)
 
-    def get_logout_string(self, the_string):
+    @staticmethod
+    def get_logout_string(the_string):
         prep = list(filter(None, the_string.split(":")))
         choices = {
             1: "{0}:logout".format(prep[0]),
