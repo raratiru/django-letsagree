@@ -109,7 +109,7 @@ Installation
 
     The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
     In the above example, we store migrations inside `<project>/<project>/3p_migrations`.
-    
+
 
 Settings
 --------
@@ -194,11 +194,8 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear on the top right corner of both templates.
-
-  This is formed as `reverse(<LETSAGREE_LOGOUT_APP_NAME>:logout)`.
-
-  The logout link defaults to `reverse('admin:logout')`.
+* `LETSAGREE_LOGOUT_APP_NAME`: String that represents a namespaced URL.
+    For example: 'admin:logout' is the default.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
 * `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
