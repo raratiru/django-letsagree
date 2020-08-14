@@ -6,7 +6,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 [![Python Versions](https://img.shields.io/badge/Python-3.5%20|%203.6%20|%203.7%20|%203.8-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
-[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.0-brown.svg)](https://www.djangoproject.com/download/)
+[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.1-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
 Let's Agree
@@ -46,7 +46,7 @@ Prerequisites
 -------
 
 * Python 3.5, 3.6, 3.7, 3.8
-* Django 2.2, 3.0
+* Django 2.2, 3.1
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
@@ -109,7 +109,7 @@ Installation
 
     The relevant Django setting is [`MIGRATION_MODULES`](https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules).
     In the above example, we store migrations inside `<project>/<project>/3p_migrations`.
-    
+
 
 Settings
 --------
@@ -119,7 +119,7 @@ Settings
 LETSAGREE_CACHE = False
 LETSAGREE_CSS = {}
 LETSAGREE_JS = ()
-LETSAGREE_LOGOUT_APP_NAME = 'admin'
+LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
 ```
@@ -194,11 +194,9 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: A logout link will appear on the top right corner of both templates.
+* `LETSAGREE_LOGOUT_APP_NAME`: String that represents a namespaced URL.
 
-  This is formed as `reverse(<LETSAGREE_LOGOUT_APP_NAME>:logout)`.
-
-  The logout link defaults to `reverse('admin:logout')`.
+    For example: `'admin:logout'` is the default.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
 * `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
@@ -253,6 +251,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.2: Added the ability to set a namespaced url in the "logout application name" setting. 
+
 1.1.1: AnonymousUser should not access letsagree urls (receives 404)
 
 1.1.0: Refactored middleware for thread-safety

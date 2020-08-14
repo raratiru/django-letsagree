@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Tue 07 Apr 2020 11:43:40 PM EEST (23:43)
+#       Last Modified : Fri 14 Aug 2020 03:53:16 PM EEST (15:53)
 #
 # ==============================================================================
 
@@ -62,6 +62,15 @@ class PendingView(FormView):
         cache.set(cache_key, False, 24 * 3600)
         return super().form_valid(form)
 
+    @staticmethod
+    def get_logout_string(the_string):
+        prep = list(filter(None, the_string.split(":")))
+        choices = {
+            1: "{0}:logout".format(prep[0]),
+            2: "{0}:{1}".format(prep[0], prep[-1]),
+        }
+        return choices[len(prep)]
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["browser_title"] = getattr(
@@ -74,7 +83,7 @@ class PendingView(FormView):
             logout_url_app = (
                 getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
             )
-            context["logout_url"] = reverse("{0}:logout".format(logout_url_app))
+            context["logout_url"] = reverse(self.get_logout_string(logout_url_app))
         except NoReverseMatch:
             pass
 
