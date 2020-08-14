@@ -119,7 +119,7 @@ Settings
 LETSAGREE_CACHE = False
 LETSAGREE_CSS = {}
 LETSAGREE_JS = ()
-LETSAGREE_LOGOUT_APP_NAME = 'admin'
+LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
 ```
@@ -251,6 +251,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.2: Added the ability to set a namespaced url in the "logout application name" setting. 
+
 1.1.1: AnonymousUser should not access letsagree urls (receives 404)
 
 1.1.0: Refactored middleware for thread-safety
