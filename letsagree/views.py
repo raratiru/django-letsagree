@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Fri 14 Aug 2020 02:36:19 PM EEST (14:36)
+#       Last Modified : Fri 14 Aug 2020 03:27:12 PM EEST (15:27)
 #
 # ==============================================================================
 
@@ -63,10 +63,10 @@ class PendingView(FormView):
         return super().form_valid(form)
 
     def get_logout_string(self, the_string):
-        prep = list(filter(None, the_string.split(':')))
+        prep = list(filter(None, the_string.split(":")))
         choices = {
-            1: prep[0],
-            2: '{0}:{1}'.format(prep[0], prep[-1])
+            1: "{0}:logout".format(prep[0]),
+            2: "{0}:{1}".format(prep[0], prep[-1]),
         }
         return choices[len(prep)]
 

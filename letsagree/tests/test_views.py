@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Wed 08 Apr 2020 12:41:07 AM EEST (00:41)
+#       Last Modified : Fri 14 Aug 2020 03:39:22 PM EEST (15:39)
 #
 # ==============================================================================
 
@@ -68,6 +68,19 @@ def test_view_structure(
     else:
         assert "There are no pending agreements" not in response.rendered_content
         assert "LOG OUT" not in response.rendered_content
+
+
+@pytest.mark.parametrize(
+    "the_string,the_result",
+    [
+        ("admin", "admin:logout"),
+        ("admin:", "admin:logout"),
+        ("admin:logout_view", "admin:logout_view"),
+    ],
+)
+def test_named_url(the_string, the_result):
+    view = views.PendingView()
+    assert view.get_logout_string(the_string) == the_result
 
 
 @pytest.mark.skipif(
