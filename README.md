@@ -195,7 +195,8 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 ### Other settings
 
 * `LETSAGREE_LOGOUT_APP_NAME`: String that represents a namespaced URL.
-    For example: 'admin:logout' is the default.
+
+    For example: `'admin:logout'` is the default.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
 * `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
