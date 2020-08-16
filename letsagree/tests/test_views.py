@@ -34,11 +34,8 @@ pytestmark = pytest.mark.django_db
     reason="Window Function is not supported in this SQLite version",
 )
 @pytest.mark.parametrize(
-    "terms_agreed,request_url,agree_queries", [
-        (True, "/", 2),
-        (False, "/", 1),
-        (None, "/", 1),
-    ]
+    "terms_agreed,request_url,agree_queries",
+    [(True, "/", 2), (False, "/", 1), (None, "/", 1)],
 )
 def test_view_structure(
     queries,
