@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Fri 14 Aug 2020 03:39:22 PM EEST (15:39)
+#       Last Modified : Sun 16 Aug 2020 08:49:57 PM EEST (20:49)
 #
 # ==============================================================================
 
@@ -34,7 +34,8 @@ pytestmark = pytest.mark.django_db
     reason="Window Function is not supported in this SQLite version",
 )
 @pytest.mark.parametrize(
-    "terms_agreed,request_url,agree_queries", [(True, "/", 2), (False, "/", 1)]
+    "terms_agreed,request_url,agree_queries",
+    [(True, "/", 2), (False, "/", 1), (None, "/", 1)],
 )
 def test_view_structure(
     queries,
@@ -51,6 +52,8 @@ def test_view_structure(
     # Set once the logout url to test if it is rendered
     if terms_agreed:
         settings.LETSAGREE_LOGOUT_APP_NAME = None  # By default is 'admin'
+    elif terms_agreed is None:
+        settings.LETSAGREE_LOGOUT_URL = "admin:logout"
     else:
         settings.LETSAGREE_LOGOUT_APP_NAME = "foo"
     # Test Pending View
@@ -64,7 +67,9 @@ def test_view_structure(
     if terms_agreed:
         assert "There are no pending agreements" in response.rendered_content
         assert reverse("admin:logout") in response.rendered_content
-
+    elif terms_agreed is None:
+        assert "There are no pending agreements" not in response.rendered_content
+        assert reverse("admin:logout") in response.rendered_content
     else:
         assert "There are no pending agreements" not in response.rendered_content
         assert "LOG OUT" not in response.rendered_content
@@ -76,6 +81,8 @@ def test_view_structure(
         ("admin", "admin:logout"),
         ("admin:", "admin:logout"),
         ("admin:logout_view", "admin:logout_view"),
+        ("", None),
+        (False, None),
     ],
 )
 def test_named_url(the_string, the_result):

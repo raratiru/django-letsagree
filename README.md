@@ -119,7 +119,8 @@ Settings
 LETSAGREE_CACHE = False
 LETSAGREE_CSS = {}
 LETSAGREE_JS = ()
-LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'
+LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'  (Deprecated)
+LETSAGREE_LOGOUT_URL = 'admin:logout'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
 ```
@@ -194,7 +195,7 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: String that represents a namespaced URL.
+* `LETSAGREE_LOGOUT_URL`: String that represents a namespaced URL.
 
     For example: `'admin:logout'` is the default.
 
@@ -251,6 +252,10 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.4: Deprecated `LETSAGREE_LOGOUT_APP_NAME` in favor of `LETSAGREE_LOGOUT_URL`
+
+1.1.3: Locked to Django-3.0 until #39 is resolved
+
 1.1.2: Added the ability to set a namespaced url in the "logout application name" setting.
 
 1.1.1: AnonymousUser should not access letsagree urls (receives 404)
