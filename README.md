@@ -119,7 +119,8 @@ Settings
 LETSAGREE_CACHE = False
 LETSAGREE_CSS = {}
 LETSAGREE_JS = ()
-LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'
+LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'  (Deprecated)
+LETSAGREE_LOGOUT_URL = 'admin:logout'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
 ```
@@ -194,7 +195,7 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 ### Other settings
 
-* `LETSAGREE_LOGOUT_APP_NAME`: String that represents a namespaced URL.
+* `LETSAGREE_LOGOUT_URL`: String that represents a namespaced URL.
 
     For example: `'admin:logout'` is the default.
 

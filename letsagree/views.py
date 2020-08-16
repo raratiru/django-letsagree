@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Fri 14 Aug 2020 03:53:16 PM EEST (15:53)
+#       Last Modified : Sun 16 Aug 2020 08:37:39 PM EEST (20:37)
 #
 # ==============================================================================
 
@@ -64,12 +64,15 @@ class PendingView(FormView):
 
     @staticmethod
     def get_logout_string(the_string):
-        prep = list(filter(None, the_string.split(":")))
-        choices = {
-            1: "{0}:logout".format(prep[0]),
-            2: "{0}:{1}".format(prep[0], prep[-1]),
-        }
-        return choices[len(prep)]
+        if the_string:
+            prep = list(filter(None, the_string.split(":")))
+            choices = {
+                1: "{0}:logout".format(prep[0]),
+                2: "{0}:{1}".format(prep[0], prep[-1]),
+            }
+            return choices[len(prep)]
+        else:
+            return None
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -80,10 +83,15 @@ class PendingView(FormView):
         context["user"] = self.request.user
 
         try:
-            logout_url_app = (
-                getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
+            logout_url = (
+                self.get_logout_string(
+                    getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin")
+                )
+                or getattr(settings, "LETSAGREE_LOGOUT_URL", "admin:logout")
+                or "admin:logout"
             )
-            context["logout_url"] = reverse(self.get_logout_string(logout_url_app))
+
+            context["logout_url"] = reverse(logout_url)
         except NoReverseMatch:
             pass
 
