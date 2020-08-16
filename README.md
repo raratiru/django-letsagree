@@ -252,6 +252,10 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.4: Deprecated `LETSAGREE_LOGOUT_APP_NAME` in favor of `LETSAGREE_LOGOUT_URL`
+
+1.1.3: Locked to Django-3.0 until #39 is resolved
+
 1.1.2: Added the ability to set a namespaced url in the "logout application name" setting.
 
 1.1.1: AnonymousUser should not access letsagree urls (receives 404)
