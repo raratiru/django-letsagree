@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Sun 16 Aug 2020 08:49:57 PM EEST (20:49)
+#       Last Modified : Tue 18 Aug 2020 11:26:18 AM EEST (11:26)
 #
 # ==============================================================================
 
@@ -35,7 +35,7 @@ pytestmark = pytest.mark.django_db
 )
 @pytest.mark.parametrize(
     "terms_agreed,request_url,agree_queries",
-    [(True, "/", 2), (False, "/", 1), (None, "/", 1)],
+    [(True, "/", 2), (False, "/", 1)],
 )
 def test_view_structure(
     queries,
@@ -52,8 +52,6 @@ def test_view_structure(
     # Set once the logout url to test if it is rendered
     if terms_agreed:
         settings.LETSAGREE_LOGOUT_APP_NAME = None  # By default is 'admin'
-    elif terms_agreed is None:
-        settings.LETSAGREE_LOGOUT_URL = "admin:logout"
     else:
         settings.LETSAGREE_LOGOUT_APP_NAME = "foo"
     # Test Pending View
@@ -75,19 +73,19 @@ def test_view_structure(
         assert "LOG OUT" not in response.rendered_content
 
 
-@pytest.mark.parametrize(
-    "the_string,the_result",
-    [
-        ("admin", "admin:logout"),
-        ("admin:", "admin:logout"),
-        ("admin:logout_view", "admin:logout_view"),
-        ("", None),
-        (False, None),
-    ],
-)
-def test_named_url(the_string, the_result):
-    view = views.PendingView()
-    assert view.get_logout_string(the_string) == the_result
+# @pytest.mark.parametrize(
+#     "the_string,the_result",
+#     [
+#         ("admin", "admin:logout"),
+#         ("admin:", "admin:logout"),
+#         ("admin:logout_view", "admin:logout_view"),
+#         ("", None),
+#         (False, None),
+#     ],
+# )
+# def test_named_url(the_string, the_result):
+#     view = views.PendingView()
+#     assert view.get_logout_string(the_string) == the_result
 
 
 @pytest.mark.skipif(
