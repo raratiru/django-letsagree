@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Sun 16 Aug 2020 08:37:39 PM EEST (20:37)
+#       Last Modified : Tue 18 Aug 2020 11:15:32 AM EEST (11:15)
 #
 # ==============================================================================
 
@@ -16,11 +16,11 @@ from django.db import transaction
 from django.conf import settings
 from django.core.cache import cache
 from django.http import Http404
-from django.urls import reverse, NoReverseMatch
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
 from letsagree import models
 from letsagree.forms import PendingAgreementFormSet
+from letsagree.helpers import get_logout_url
 
 
 class PendingView(FormView):
@@ -62,18 +62,6 @@ class PendingView(FormView):
         cache.set(cache_key, False, 24 * 3600)
         return super().form_valid(form)
 
-    @staticmethod
-    def get_logout_string(the_string):
-        if the_string:
-            prep = list(filter(None, the_string.split(":")))
-            choices = {
-                1: "{0}:logout".format(prep[0]),
-                2: "{0}:{1}".format(prep[0], prep[-1]),
-            }
-            return choices[len(prep)]
-        else:
-            return None
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["browser_title"] = getattr(
@@ -81,19 +69,7 @@ class PendingView(FormView):
         )
         context["border_header"] = getattr(settings, "LETSAGREE_BORDER_HEADER", "")
         context["user"] = self.request.user
-
-        try:
-            logout_url = (
-                self.get_logout_string(
-                    getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin")
-                )
-                or getattr(settings, "LETSAGREE_LOGOUT_URL", "admin:logout")
-                or "admin:logout"
-            )
-
-            context["logout_url"] = reverse(logout_url)
-        except NoReverseMatch:
-            pass
+        context["logout_url"] = get_logout_url()
 
         if len(context["form"]) == 0:
             context["empty_form"] = True

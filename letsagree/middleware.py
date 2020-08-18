@@ -7,7 +7,7 @@
 #
 #       Creation Date : Mon 28 Jan 2019 01:20:20 PM EET (13:20)
 #
-#       Last Modified : Fri 27 Mar 2020 08:50:03 PM EET (20:50)
+#       Last Modified : Tue 18 Aug 2020 11:16:43 AM EEST (11:16)
 #
 # ==============================================================================
 
@@ -16,6 +16,7 @@ from django.core.cache import cache
 from django.shortcuts import redirect
 from django.urls import reverse
 from letsagree.models import Term
+from letsagree.helpers import get_logout_url
 
 
 class LetsAgreeMiddleware:
@@ -49,12 +50,7 @@ class ConsentEvaluator:
               do so if he has already agreed to the current term in effect.)
             *
         """
-        logout_url_app = (
-            getattr(settings, "LETSAGREE_LOGOUT_APP_NAME", "admin") or "admin"
-        )
-        logout_url = (
-            reverse("{0}:logout".format(logout_url_app)) if logout_url_app else ""
-        )
+        logout_url = get_logout_url()
         satisfied_prerequisites = all(
             (
                 self.user_id,

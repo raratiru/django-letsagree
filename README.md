@@ -119,7 +119,7 @@ Settings
 LETSAGREE_CACHE = False
 LETSAGREE_CSS = {}
 LETSAGREE_JS = ()
-LETSAGREE_LOGOUT_APP_NAME = 'admin:logout'  (Deprecated)
+LETSAGREE_LOGOUT_APP_NAME = ''  (Deprecated -> default value was 'admin')
 LETSAGREE_LOGOUT_URL = 'admin:logout'
 LETSAGREE_BROWSER_TITLE = ''
 LETSAGREE_BORDER_HEADER = ''
@@ -197,7 +197,7 @@ In that case, bear in mind that if `{{ empty_form }}` is False, `{{ form }}` con
 
 * `LETSAGREE_LOGOUT_URL`: String that represents a namespaced URL.
 
-    For example: `'admin:logout'` is the default.
+    For example: `'admin:logout'` is the default, it can be any string. If the url is not found, it fails silently resulting in the disappearance of the logout option.
 
 * `LETSAGREE_BROWSER_TITLE`: A title for the default template.
 * `LETSAGREE_BORDER_HEADER`: Text that will appear on the top left corner of the default template.
@@ -252,6 +252,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.5: Fixed bug in LETSAGREE_LOGOUT_URL setting.
+
 1.1.4: Deprecated `LETSAGREE_LOGOUT_APP_NAME` in favor of `LETSAGREE_LOGOUT_URL`
 
 1.1.3: Locked to Django-3.0 until #39 is resolved
