@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Mon 05 Oct 2020 07:28:57 PM EEST (19:28)
+#       Last Modified : Mon 05 Oct 2020 08:07:46 PM EEST (20:07)
 #
 # ==============================================================================
 
@@ -19,7 +19,7 @@ import sqlite3
 from django.conf import settings
 from django.test import RequestFactory
 from django.urls import reverse
-from letsagree import views, models, forms
+from letsagree import views, models  # , forms
 
 pytestmark = pytest.mark.django_db
 
