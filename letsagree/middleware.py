@@ -106,8 +106,8 @@ class ConsentEvaluator:
 
     def get_next_parameter(self):
         """
-            If next parameter exists in request, set it also in the redirect
-            unless it equals the url of the consent form.
+        If next parameter exists in request, set it also in the redirect
+        unless it equals the url of the consent form.
         """
         return (
             "?next={0}".format(self.get_next)
