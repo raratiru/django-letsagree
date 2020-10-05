@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Tue 18 Aug 2020 11:26:18 AM EEST (11:26)
+#       Last Modified : Mon 05 Oct 2020 07:28:57 PM EEST (19:28)
 #
 # ==============================================================================
 
@@ -132,10 +132,10 @@ def test_view_post(queries, admin_client, settings):
             key_name = "form-{0}-{1}".format(count, key)
             data[key_name] = value
 
-    # Test formset is valid and formset does not save to db
-    formset = forms.PendingAgreementFormSet(data=data)
-    assert formset.is_valid()
-    assert formset.save() == [None, None, None]
+    # # Test formset is valid and formset does not save to db
+    # formset = forms.PendingAgreementFormSet(data=data)
+    # assert formset.is_valid()
+    # assert formset.save() == [None, None, None]
 
     # Create the post request
     factory = RequestFactory()
