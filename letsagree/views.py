@@ -8,31 +8,53 @@
 #
 #       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
 #
-#       Last Modified : Tue 18 Aug 2020 11:15:32 AM EEST (11:15)
+#       Last Modified : Mon 05 Oct 2020 07:06:53 PM EEST (19:06)
 #
 # ==============================================================================
 
 from django.db import transaction
 from django.conf import settings
 from django.core.cache import cache
+from django.forms import modelformset_factory
 from django.http import Http404
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
+from translated_fields import to_attribute
 from letsagree import models
-from letsagree.forms import PendingAgreementFormSet
+from letsagree.forms import PendingConsentForm
 from letsagree.helpers import get_logout_url
 
 
 class PendingView(FormView):
     http_method_names = ["get", "post"]
     template_name = "letsagree/pending.html"
-    form_class = PendingAgreementFormSet
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             raise Http404()
         self.success_url = request.GET.get("next")
         return super().dispatch(request, *args, **kwargs)
+
+    def get_form_class(self):
+        """
+        Initialize modelformset_factory within the FormView instance instead of
+        the form_class because get_language() has a context only within the
+        request/response cycle.
+
+        https://code.djangoproject.com/ticket/31911#ticket
+        https://github.com/matthiask/django-translated-fields/issues/24#issuecomment-678069602
+        """
+        return modelformset_factory(
+            models.Term,
+            form=PendingConsentForm,
+            extra=0,
+            fields=(
+                "date_created",
+                to_attribute("summary"),
+                to_attribute("content"),
+                "agree",
+            ),
+        )
 
     def get_form_kwargs(self):
         """

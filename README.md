@@ -6,7 +6,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 [![Python Versions](https://img.shields.io/badge/Python-3.5%20|%203.6%20|%203.7%20|%203.8-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
-[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.0-brown.svg)](https://www.djangoproject.com/download/)
+[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.1-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
 Let's Agree
@@ -46,7 +46,7 @@ Prerequisites
 -------
 
 * Python 3.5, 3.6, 3.7, 3.8
-* Django 2.2, 3.0
+* Django 2.2, 3.1
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
@@ -252,6 +252,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.6: Fixed compatibility with Django-3.1
+
 1.1.5: Fixed bug in LETSAGREE_LOGOUT_URL setting.
 
 1.1.4: Deprecated `LETSAGREE_LOGOUT_APP_NAME` in favor of `LETSAGREE_LOGOUT_URL`

@@ -8,7 +8,7 @@
 #
 #       Creation Date : Mon 25 Feb 2019 05:44:28 PM EET (17:44)
 #
-#       Last Modified : Mon 08 Apr 2019 03:16:38 PM EEST (15:16)
+#       Last Modified : Mon 05 Oct 2020 07:06:40 PM EEST (19:06)
 #
 # ==============================================================================
 
@@ -16,7 +16,6 @@ from django import forms
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from letsagree import models
-from translated_fields import to_attribute
 
 
 class PendingConsentForm(forms.ModelForm):
@@ -44,15 +43,17 @@ class PendingConsentForm(forms.ModelForm):
         js = getattr(settings, "LETSAGREE_JS", tuple())
 
     class Meta:
+        """
+        The fields here are not fine-grained based on the active language because
+        get_language() has contenxt only within the request/response cycle.
+        In this case, it happens within the View insance where modelformset_factory
+        is initialized with the appropriate fields.
+
+        If needed, the default language should be explicitly queried from the
+        settings.DEFAULT_LANGUAGE.
+
+        In this case, however, the modelform is not enabled in the admin.
+        """
+
         model = models.Term
-        fields = (
-            "date_created",
-            to_attribute("summary"),
-            to_attribute("content"),
-            "agree",
-        )
-
-
-PendingAgreementFormSet = forms.modelformset_factory(
-    models.Term, form=PendingConsentForm, extra=0
-)
+        fields = "__all__"

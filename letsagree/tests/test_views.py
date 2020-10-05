@@ -8,7 +8,7 @@
 #
 #       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
 #
-#       Last Modified : Tue 18 Aug 2020 11:26:18 AM EEST (11:26)
+#       Last Modified : Mon 05 Oct 2020 08:07:46 PM EEST (20:07)
 #
 # ==============================================================================
 
@@ -19,7 +19,7 @@ import sqlite3
 from django.conf import settings
 from django.test import RequestFactory
 from django.urls import reverse
-from letsagree import views, models, forms
+from letsagree import views, models  # , forms
 
 pytestmark = pytest.mark.django_db
 
@@ -132,10 +132,10 @@ def test_view_post(queries, admin_client, settings):
             key_name = "form-{0}-{1}".format(count, key)
             data[key_name] = value
 
-    # Test formset is valid and formset does not save to db
-    formset = forms.PendingAgreementFormSet(data=data)
-    assert formset.is_valid()
-    assert formset.save() == [None, None, None]
+    # # Test formset is valid and formset does not save to db
+    # formset = forms.PendingAgreementFormSet(data=data)
+    # assert formset.is_valid()
+    # assert formset.save() == [None, None, None]
 
     # Create the post request
     factory = RequestFactory()
