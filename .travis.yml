@@ -9,12 +9,12 @@ python:
 install:
   - pip install tox-travis
   - pip install coveralls
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then pip install black flake8 bandit; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.9 ]]; then pip install black flake8 bandit; fi
 script:
   - tox
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then black . --check; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then flake8 .; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then bandit letsagree/*; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.9 ]]; then black . --check; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.9 ]]; then flake8 .; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.9 ]]; then bandit letsagree/*; fi
 services:
   - postgresql
   - mysql
