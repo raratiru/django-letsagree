@@ -5,7 +5,7 @@
 [![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-[![Python Versions](https://img.shields.io/badge/Python-3.5%20|%203.6%20|%203.7%20|%203.8-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
+[![Python Versions](https://img.shields.io/badge/Python-3.5%20|%203.6%20|%203.7%20|%203.8|%203.9-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
 [![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.1-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
@@ -45,7 +45,7 @@ If the user does not provide consent, the following actions are only allowed:
 Prerequisites
 -------
 
-* Python 3.5, 3.6, 3.7, 3.8
+* Python 3.5, 3.6, 3.7, 3.8, 3.9
 * Django 2.2, 3.1
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
