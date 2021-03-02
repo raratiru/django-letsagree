@@ -134,7 +134,11 @@ If `LETSAGREE_CACHE = True`, [Django's Cache Framework](https://docs.djangoproje
 
 `LETSAGREE_CACHE` is not enabled by default, because it exposes the unique `id` for each user by creating a cache record with key `'letsagree-<user id>'`.
 
-Tip: [django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness.
+Tip: [nshafer/django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness. 
+
+Update: [ericls/django-hashids](https://github.com/ericls/django-hashids) is another non-intrusive library that proxies the field that is applied to. 
+
+Both libraries, however, are based on [https://hashids.org/](https://hashids.org/) which is not capable of encrypting sensitive data.
 
 <a name='translation'></a>
 ### Translation
