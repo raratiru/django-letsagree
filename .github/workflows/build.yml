@@ -37,34 +37,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - name: Run Tests from action
+      uses: ./.github/actions/run_tests.yml
       with:
-        python-version: ${{ matrix.python-version }}
-    
-    - name: psycopg2 prerequisites
-      run: sudo apt-get install python-dev libpq-dev
-      
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install "${{ matrix.django-version }}"
-        python -m pip install django-translated-fields pytest-django pytest-cov pytest-factoryboy psycopg2-binary
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        django_settings: ${{ matrix.django_settings }}
+       
     - name: Install last pass dependencies
       if: matrix.python-version == 3.9  # CHECK
       run: |
         python -m pip install black flake8 bandit
-    
-    - name: set pythonpath
-      run: |
-        echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
-    
-    - name: Test with pytest
-      run: |
-        pytest -rs --nomigrations --cov --cov-branch
-      env:
-        DJANGO_SETTINGS_MODULE: ${{ matrix.django_settings }}
+
         
     - name: Coveralls
       uses: AndreMiras/coveralls-python-action@develop
