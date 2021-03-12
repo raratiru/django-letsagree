@@ -64,7 +64,7 @@ jobs:
       run: |
         pytest -rs --nomigrations --cov --cov-branch
       env:
-        DJANGO_SETTINGS_MODULE: ${{ django_settings }}
+        DJANGO_SETTINGS_MODULE: ${{ matrix.django_settings }}
         
     - name: Coveralls
       uses: AndreMiras/coveralls-python-action@develop
