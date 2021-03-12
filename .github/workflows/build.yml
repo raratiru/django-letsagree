@@ -15,7 +15,6 @@ jobs:
       TOX_DB_NAME: letsagree
       TOX_DB_USER: postgres
       TOX_DB_PASSWD: ${{ secrets.PG_PASS }}
-      DJANGO_SETTINGS_MODULE: test_setup.settings
       TOX_DB_ENGINE: django.db.backends.postgresql
     
     services:
@@ -34,6 +33,7 @@ jobs:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
         django-version: ["Django>=2.2,<2.3", "Django>=3.1,<3.2"]    
+        django_settings: ["test_setup.settings", "test_setup.i18n_settings"]
 
     steps:
     - uses: actions/checkout@v2
@@ -63,6 +63,8 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -rs --nomigrations --cov --cov-branch
+      env:
+        DJANGO_SETTINGS_MODULE: ${{ django_settings }}
         
     - name: Coveralls
       uses: AndreMiras/coveralls-python-action@develop
