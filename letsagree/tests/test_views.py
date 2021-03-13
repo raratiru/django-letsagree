@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/test_viws.py
-#
-#       Creation Date : Sat 23 Mar 2019 08:42:45 PM EET (20:42)
-#
-#       Last Modified : Mon 05 Oct 2020 08:07:46 PM EEST (20:07)
-#
-# ==============================================================================
-
 import pytest
 import re
 import sqlite3

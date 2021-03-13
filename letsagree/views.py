@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/views.py
-#
-#       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
-#
-#       Last Modified : Mon 05 Oct 2020 07:06:53 PM EEST (19:06)
-#
-# ==============================================================================
-
 from django.db import transaction
 from django.conf import settings
 from django.core.cache import cache

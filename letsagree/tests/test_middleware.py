@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/test_middleware.py
-#
-#       Creation Date : Sun 17 Mar 2019 03:47:22 PM EET (15:47)
-#
-#       Last Modified : Fri 27 Mar 2020 09:27:36 PM EET (21:27)
-#
-# ==============================================================================
-
 import pytest
 import sqlite3
 

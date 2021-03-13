@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/models.py
-#
-#       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
-#
-#       Last Modified : Mon 01 Apr 2019 06:02:32 PM EEST (18:02)
-#
-# ==============================================================================
-
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group

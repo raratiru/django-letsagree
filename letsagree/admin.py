@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/admin.py
-#
-#       Creation Date : Sun 27 Jan 2019 07:54:42 PM EET (19:54)
-#
-#       Last Modified : Sun 20 Oct 2019 02:31:39 PM EEST (14:31)
-#
-# ==============================================================================
-
 from django.conf import settings
 from django.contrib import admin
 from letsagree import models

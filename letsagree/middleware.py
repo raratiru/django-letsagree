@@ -1,16 +1,5 @@
 #!/usr/bin/env python
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/middleware.py
-#
-#       Creation Date : Mon 28 Jan 2019 01:20:20 PM EET (13:20)
-#
-#       Last Modified : Tue 18 Aug 2020 11:16:43 AM EEST (11:16)
-#
-# ==============================================================================
-
 from django.conf import settings
 from django.core.cache import cache
 from django.shortcuts import redirect

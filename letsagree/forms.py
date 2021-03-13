@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/forms.py
-#
-#       Creation Date : Mon 25 Feb 2019 05:44:28 PM EET (17:44)
-#
-#       Last Modified : Mon 05 Oct 2020 07:06:40 PM EEST (19:06)
-#
-# ==============================================================================
-
 from django import forms
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _

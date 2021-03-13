@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/test_admin.py
-#
-#       Creation Date : Mon 01 Apr 2019 09:09:39 PM EEST (21:09)
-#
-#       Last Modified : Sun 20 Oct 2019 03:12:32 PM EEST (15:12)
-#
-# ==============================================================================
-
 import pytest
 
 from django.contrib.admin.sites import AdminSite
