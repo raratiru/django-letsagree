@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/querysets.py
-#
-#       Creation Date : Tue 29 Jan 2019 10:51:29 AM EET (10:51)
-#
-#       Last Modified : Fri 22 Mar 2019 11:48:45 PM EET (23:48)
-#
-# ==============================================================================
-
 from django.db import models
 from django.db.models import F, Window
 from django.db.models.functions import FirstValue

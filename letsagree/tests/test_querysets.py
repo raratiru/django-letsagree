@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/test_querysets.py
-#
-#       Creation Date : Fri 22 Mar 2019 08:16:11 PM EET (20:16)
-#
-#       Last Modified : Tue 09 Apr 2019 03:15:15 AM EEST (03:15)
-#
-# ==============================================================================
-
 import pytest
 import sqlite3
 

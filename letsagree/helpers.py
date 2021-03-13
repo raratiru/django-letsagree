@@ -1,16 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
-# ==============================================================================
-#
-#       File Name : letsagree/helpers.py
-#
-#       Creation Date : Tue 18 Aug 2020 10:56:37 AM EEST (10:56)
-#
-#       Last Modified : Tue 18 Aug 2020 11:24:24 AM EEST (11:24)
-#
-# ==============================================================================
 from django.conf import settings
 from django.urls import reverse, NoReverseMatch
 

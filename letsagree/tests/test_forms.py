@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/test_forms.py
-#
-#       Creation Date : Sat 23 Mar 2019 07:29:49 PM EET (19:29)
-#
-#       Last Modified : Mon 08 Apr 2019 03:18:30 PM EEST (15:18)
-#
-# ==============================================================================
-
 from letsagree import forms
 
 

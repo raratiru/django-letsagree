@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-# ==============================================================================
-#
-#       File Name : letsagree/tests/conftest.py
-#
-#       Creation Date : Mon 18 Mar 2019 12:03:21 AM EET (00:03)
-#
-#       Last Modified : Fri 27 Mar 2020 09:26:56 PM EET (21:26)
-#
-# ==============================================================================
-
 import pytest
 from collections import namedtuple
 from django.contrib.auth.models import AnonymousUser, Permission
