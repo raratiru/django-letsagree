@@ -36,6 +36,8 @@ DATABASES = {
         "NAME": os.environ["TOX_DB_NAME"],
         "USER": db[os.environ["TOX_DB_ENGINE"]].username,
         "PASSWORD": db[os.environ["TOX_DB_ENGINE"]].password,
+        "HOST": "127.0.0.1",
+        "PORT": os.environ.get("TOX_DB_PORT"),
     }
 }
 
