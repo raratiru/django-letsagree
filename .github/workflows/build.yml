@@ -59,6 +59,7 @@ jobs:
         pytest -rs --nomigrations --cov --cov-branch
       env:
         DJANGO_SETTINGS_MODULE: ${{ matrix.django_settings }}
+        TOX_DB_PORT: 5432
         
     - name: Install last pass dependencies
       if: matrix.python-version == 3.9  # CHECK
@@ -129,6 +130,7 @@ jobs:
         pytest -rs --nomigrations --cov --cov-branch
       env:
         DJANGO_SETTINGS_MODULE: ${{ matrix.django_settings }}
+        TOX_DB_PORT: 3306
         
     - name: Install last pass dependencies
       if: matrix.python-version == 3.9  # CHECK
