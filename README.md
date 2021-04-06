@@ -6,7 +6,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 [![Python Versions](https://img.shields.io/badge/Python-3.6%20|%203.7%20|%203.8|%203.9-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
-[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.1-brown.svg)](https://www.djangoproject.com/download/)
+[![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.1%20|%203.2-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
 Let's Agree
@@ -15,7 +15,7 @@ Let's Agree
 Features
 --------
 
-* Terms [versioning](#version) in "[`deque`](https://docs.python.org/3.7/library/collections.html#collections.deque)-style" with `maxlen=1`.
+* Terms [versioning](#version) in "[`deque`](https://docs.python.org/3.9/library/collections.html#collections.deque)-style" with `maxlen=1`.
 * Per-Group Term association, per-User Term acceptance for each Group a user belongs to.
 * [Max 1 query](#queries), either per request or per day for each logged-in user.
 * [Multi-language](#translation) ready.
@@ -46,7 +46,7 @@ Prerequisites
 -------
 
 * Python 3.6, 3.7, 3.8, 3.9
-* Django 2.2, 3.1
+* Django 2.2, 3.1, 3.2
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
 * [`django-translated-fields`](https://github.com/matthiask/django-translated-fields)
@@ -134,9 +134,9 @@ If `LETSAGREE_CACHE = True`, [Django's Cache Framework](https://docs.djangoproje
 
 `LETSAGREE_CACHE` is not enabled by default, because it exposes the unique `id` for each user by creating a cache record with key `'letsagree-<user id>'`.
 
-Tip: [nshafer/django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness. 
+Tip: [nshafer/django-hashid-field](https://github.com/nshafer/django-hashid-field), is a library that obscures unique `id`s, without compromising their uniqueness.
 
-Update: [ericls/django-hashids](https://github.com/ericls/django-hashids) is another non-intrusive library that proxies the field that is applied to. 
+Update: [ericls/django-hashids](https://github.com/ericls/django-hashids) is another non-intrusive library that proxies the field that is applied to.
 
 Both libraries, however, are based on [https://hashids.org/](https://hashids.org/) which is not capable of encrypting sensitive data.
 
@@ -256,6 +256,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.7: Added `default_auto_field` value to ` 'django.db.models.AutoField'` for `Django-3.2`.
+
 1.1.6: Fixed compatibility with Django-3.1
 
 1.1.5: Fixed bug in LETSAGREE_LOGOUT_URL setting.
