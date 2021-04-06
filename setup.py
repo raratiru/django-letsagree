@@ -22,8 +22,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="django-letsagree",
-    version="1.1.6",
-    python_requires=">=3.5",
+    version="1.1.7",
+    python_requires=">=3.6",
     description=(
         "A django application that associates Groups with Terms "
         "requiring consent from logged in members."
@@ -49,7 +49,6 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
