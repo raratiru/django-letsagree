@@ -256,6 +256,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.7: Added `default_auto_field` value to ` 'django.db.models.AutoField'` for `Django-3.2`.
+
 1.1.6: Fixed compatibility with Django-3.1
 
 1.1.5: Fixed bug in LETSAGREE_LOGOUT_URL setting.
