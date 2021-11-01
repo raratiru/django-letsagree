@@ -1,2 +1,2 @@
-Django==3.2.8
+Django==3.2.9
 django-translated-fields==0.11.3
