@@ -5,7 +5,7 @@
 [![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-[![Python Versions](https://img.shields.io/badge/Python-3.7%20|%203.8|%203.9|%203.10|%20-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
+[![Python Versions](https://img.shields.io/badge/Python-3.8|%203.9|%203.10|%20-%236600cc)](https://docs.djangoproject.com/en/dev/faq/install/#what-python-version-can-i-use-with-django)
 [![Django Versions](https://img.shields.io/badge/Django-2.2%20|%203.2%20|%204.0-brown.svg)](https://www.djangoproject.com/download/)
 [![Database Window Functions](https://img.shields.io/badge/Database-Window%20Functions-important.svg)](https://www.sql-workbench.eu/dbms_comparison.html)
 
@@ -45,7 +45,7 @@ If the user does not provide consent, the following actions are only allowed:
 Prerequisites
 -------
 
-* Python 3.7, 3.8, 3.9, 3.10
+* Python 3.8, 3.9, 3.10
 * Django 2.2, 3.2, 4.0
 * [Django Admin Site](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) (enabled by default in Django)
 * A database with [Window Functions support](https://www.sql-workbench.eu/dbms_comparison.html)
@@ -256,6 +256,8 @@ Unfortunatelly, the test suite is rather complicated. Sorry!
 
 Changelog
 ---------
+1.1.8: Added support for Django-4.0 started testing for python-3.10, stopped testing for python-3.6 and python-3.7 (not supported by Django-4.0).
+
 1.1.7: Added `default_auto_field` value to ` 'django.db.models.AutoField'` for `Django-3.2`.
 
 1.1.6: Fixed compatibility with Django-3.1
