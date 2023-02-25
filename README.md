@@ -1,5 +1,3 @@
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/raratiru/django-letsagree.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/raratiru/django-letsagree/context:python)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/61b3e157f170421ca3388f83567a873a)](https://www.codacy.com/app/raratiru/django-letsagree?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=raratiru/django-letsagree&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://github.com/raratiru/django-letsagree/actions/workflows/build.yml/badge.svg)](https://github.com/raratiru/django-letsagree/actions)
 [![Coverage Status](https://coveralls.io/repos/github/raratiru/django-letsagree/badge.svg?branch=travis)](https://coveralls.io/github/raratiru/django-letsagree?branch=travis)
 [![Updates](https://pyup.io/repos/github/raratiru/django-letsagree/shield.svg)](https://pyup.io/repos/github/raratiru/django-letsagree/)
