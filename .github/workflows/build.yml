@@ -32,8 +32,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]  # CHECK
-        django-version: ["Django>=2.2,<2.3", "Django>=3.2,<3.3", "Django>=4.0"]    # CHECK
+        python-version: ["3.8", "3.9", "3.10", "3.11"]  # CHECK
+        django-version: ["Django>=3.2,<3.3", "Django>=4.1"]    # CHECK
         django_settings: ["test_setup.settings", "test_setup.i18n_settings"]  # CHECK
 
     steps:
@@ -96,8 +96,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]  # CHECK
-        django-version: ["Django>=2.2,<2.3", "Django>=3.2,<3.3", "Django>=4.0"]    # CHECK
+        python-version: ["3.8", "3.9", "3.10", "3.11"]  # CHECK
+        django-version: ["Django>=3.2,<3.3", "Django>=4.1"]    # CHECK
         django_settings: ["test_setup.settings", "test_setup.i18n_settings"]  # CHECK
     steps:
     - uses: actions/checkout@v2
