@@ -12,7 +12,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="django-letsagree",
-    version="1.1.8",
+    version="1.1.9",
     python_requires=">=3.7",
     description=(
         "A django application that associates Groups with Terms "
