@@ -2,16 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-# ==============================================================================
-#
-#       File Name : setup.py
-#
-#       Creation Date : Mon 08 Apr 2019 07:00:40 PM EEST (19:00)
-#
-#       Last Modified : Mon 05 Oct 2020 07:35:24 PM EEST (19:35)
-#
-# ==============================================================================
-
 import os
 from setuptools import find_packages, setup
 
