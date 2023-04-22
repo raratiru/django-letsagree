@@ -85,10 +85,11 @@ def users(user_factory):
     super_user = user_factory.create(is_superuser=True)
 
     def _send(user):
-        if user == "staff":
-            return staff_user
-        if user == "sup_er":
-            return super_user
+        user_choices = {
+            "staff": staff_user,
+            "sup_er": super_user,
+        }
+        return user_choices[user]
 
     return _send
 
