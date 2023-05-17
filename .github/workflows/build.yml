@@ -37,9 +37,9 @@ jobs:
         django_settings: ["test_setup.settings", "test_setup.i18n_settings"]  # CHECK
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -100,9 +100,9 @@ jobs:
         django-version: ["Django>=3.2,<3.3", "Django>=4.1"]    # CHECK
         django_settings: ["test_setup.settings", "test_setup.i18n_settings"]  # CHECK
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -134,11 +134,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
-        python-version: "3.10"  # CHECK
+        python-version: "3.11"  # CHECK
 
     - name: Install last pass dependencies
       run: |
